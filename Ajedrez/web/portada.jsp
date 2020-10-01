@@ -70,7 +70,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="bg-dark botonesJuegoInicio" data-dismiss="modal">Cerrar</button>
-                <form action="ServletTablero" method="post">
+                <form action="Tablero" method="post">
                     <button type="submit" class="bg-dark botonesJuegoInicio">Iniciar Juego</button>
                 </form>
               </div>
