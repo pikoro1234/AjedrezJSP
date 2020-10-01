@@ -1,0 +1,200 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-sep-2020, 22:55:10
+    Author     : jorge
+*/
+
+html body h1{
+    text-align: center;
+}
+
+html body table{
+    width: 80%;
+    margin: 10px auto;
+    border: 2px solid;
+    /*border-collapse: collapse;*/
+}
+
+table thead{
+    margin-bottom: 10px;
+}
+
+table thead tr th{
+   border: 2px solid;
+   padding-top: 35px;
+   padding-bottom: 35px;
+   margin-bottom: 10px;
+   background-color: red;
+}
+
+table tbody td{
+    border: 2px solid;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+
+/*Spam Home*/
+.open-span{
+    cursor: pointer;
+    z-index: 20000;
+    box-shadow: 0px 5px 10px 3px #cecece; 
+    border-style: double; 
+    color:#4B4949; 
+    background-color: #EDE8E8;
+    width: 500px; 
+    padding: 100px 15px;  
+    left: -700px; 
+    position: absolute; 
+    text-align: center;
+}
+
+.span-background{
+    position:fixed;
+    top: 0;bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    opacity: 0.6;
+    background-color: #000;
+}
+
+.left-span{
+    left: 380px;
+    transition: 1s ease;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    top: 150px;
+}
+
+html body .information{
+    padding: 20px; 
+    width: 220px; 
+    margin: 2px auto;
+    color: #f5f5f5;
+    border-radius: 30px;
+}
+
+html body .information svg{
+    color: #44E11D;
+    margin-left: 10px;
+}
+
+html body .information:hover{
+    background-color: #EDE8E8!important;
+    color: #444; 
+    border: solid 1px #444;
+}
+
+html body .information:hover>svg{
+    color: #444;
+}
+
+html body .information:hover ~ .autor{
+    display: flex!important;
+    box-shadow:8px 7px 15px 3px #cecece;
+}
+
+.alertacion{
+    display: none;
+}
+
+html body #span-home:hover>.alertacion{
+    display: block!important;
+}
+
+.autor{
+    color: #f5f5f5;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px; 
+    position: absolute;
+    bottom: -65px;
+    left: 102px; 
+    display: none;
+}
+/*Spam Home*/
+
+.jumbotron{
+    width: 80%;
+    margin: 150px auto;
+    border-radius: 30px!important;
+    text-align: center;
+}
+
+.jumbotron .content-jumbotron{
+    display: flex;
+    flex-direction: column;
+}
+
+.jumbotron .content-jumbotron a{
+    cursor: pointer!important;
+    text-decoration: none!important;
+}
+
+.jumbotron .content-jumbotron .enlaceAyuda{
+    text-decoration: none;
+}
+
+html body .botonesJuego{
+    padding: 20px; 
+    width: 360px; 
+    margin: 2px auto;
+    color: #f5f5f5!important;
+    border-radius: 30px;
+}
+
+html body .botonesJuegoInicio{
+    padding: 20px; 
+    width: 150px; 
+    margin: 2px auto;
+    color: #f5f5f5!important;
+    border-radius: 30px;
+}
+
+html body .botonesJuego svg{
+    color: #44E11D;
+    margin-left: 10px;
+}
+
+html body .botonesJuegoInicio svg{
+    color: #44E11D;
+    margin-left: 10px;
+}
+
+html body .botonesJuego:hover{
+    background-color: #EDE8E8!important;
+    color: #444!important; 
+    border: solid 1px #444;
+}
+
+html body .botonesJuegoInicio:hover{
+    background-color: #EDE8E8!important;
+    color: #444!important; 
+    border: solid 1px #444;
+}
+
+html body .botonesJuego:hover>svg{
+    color: #444;
+}
+
+html body .botonesJuegoInicio:hover>svg{
+    color: #444;
+}
+
+html body .botonesJuego:hover ~ .autor{
+    box-shadow:8px 7px 15px 3px #cecece;
+}
+
+html body .botonesJuegoInicio:hover ~ .autor{
+    box-shadow:8px 7px 15px 3px #cecece;
+}
+
+
