@@ -46,12 +46,36 @@
         <!--popup informacion-->
         <div class="jumbotron">
             <div class="content-jumbotron">
-                <form action="ServletUno" method="post">
-                <input class="bg-dark botonesJuego" type="submit" value="Iniciar Juego">
-                </form>
-                <a class="bg-dark botonesJuego" href="Ayuda.html">Ayuda</a>
+                <a class="bg-dark botonesJuego" data-toggle="modal" data-target="#exampleModalJuego">Jugar</a>
+                <a class="bg-dark botonesJuego enlaceAyuda" href="Ayuda.html">Ayuda</a>
                 <a class="bg-dark botonesJuego" data-toggle="modal" data-target="#exampleModal">Nosotros</a>
             </div>
+        </div>
+        
+        <!-- Modal  Inicio Juego -->
+        <div class="modal fade" id="exampleModalJuego" tabindex="-1" aria-labelledby="exampleModalJuego" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Juego</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  
+                  <input type="text" class="form-control" placeholder="Username uno">
+                  <br>
+                  <input type="text" class="form-control" placeholder="Username dos">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="bg-dark botonesJuegoInicio" data-dismiss="modal">Cerrar</button>
+                <form action="ServletTablero" method="post">
+                    <button type="submit" class="bg-dark botonesJuegoInicio">Iniciar Juego</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         
         <!-- Modal -->
