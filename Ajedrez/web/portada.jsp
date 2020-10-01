@@ -11,7 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <title>Ajedrez</title>
     </head>
     
@@ -30,7 +32,7 @@
         <div class="span-background"></div>
         
 	<div id= "span-home" class="open-span" style="text-align: center;">
-            <h3>Bienvenido Ajedrez</h3>
+            <h3>Bienvenido</h3>
             <!--<span class="alertacion" style="padding-bottom: 10px;">Click Boton...</span>-->
             <span class="bg-dark information">Información<i data-feather="alert-octagon"></i></span>
 		<div class="autor bg-dark">
@@ -48,10 +50,30 @@
                 <input class="bg-dark botonesJuego" type="submit" value="Iniciar Juego">
                 </form>
                 <a class="bg-dark botonesJuego" href="Ayuda.html">Ayuda</a>
-                <a class="bg-dark botonesJuego" href="Nosotros.html">Nosotros</a>
+                <a class="bg-dark botonesJuego" data-toggle="modal" data-target="#exampleModal">Nosotros</a>
             </div>
         </div>
         
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
         
     </body>
 </html>
