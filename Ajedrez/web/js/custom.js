@@ -1,16 +1,14 @@
 $(document).ready(function(){
     
- $("#game").click(function(){
+    $("#game").click(function(){
      
-     var acumulador = $("#jugadorA").val(); 
+        var acumulador = $("#jugadorA").val(); 
      
-     var contador = $("#jugadorB").val();
+        var contador = $("#jugadorB").val();
      
-     $("#nombre1html").attr("value",acumulador);
+        $("#nombre1html").attr("value",acumulador);
      
-     $("#nombre2html").attr("value",contador);
-    
-  });
-    
-   
+        $("#nombre2html").attr("value",contador);    
+    });
+      
 });

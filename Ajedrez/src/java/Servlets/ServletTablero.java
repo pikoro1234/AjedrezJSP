@@ -12,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author jorge
@@ -47,6 +46,7 @@ public class ServletTablero extends HttpServlet {
             String nombre1 = request.getParameter("nombre1html");
             
             String nombre2 = request.getParameter("nombre2html");
+       
             out.println("<h1>Servlet valor uno es " + t1 + "</h1>");
             out.println("<h1>Servlet valor dos es " + t2 + "</h1>"); 
             out.println("<h1>Servlet valor dos es " + nombre1 + "</h1>"); 
