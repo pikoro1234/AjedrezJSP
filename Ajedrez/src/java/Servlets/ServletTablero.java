@@ -39,8 +39,18 @@ public class ServletTablero extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet ServletTablero</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletTablero at " + request.getContextPath() + "</h1>");
+            out.println("<body>");        
+            String t1 = request.getParameter("dato1");
+            
+            String t2 = request.getParameter("dato2");   
+            
+            String nombre1 = request.getParameter("nombre1html");
+            
+            String nombre2 = request.getParameter("nombre2html");
+            out.println("<h1>Servlet valor uno es " + t1 + "</h1>");
+            out.println("<h1>Servlet valor dos es " + t2 + "</h1>"); 
+            out.println("<h1>Servlet valor dos es " + nombre1 + "</h1>"); 
+            out.println("<h1>Servlet valor dos es " + nombre2 + "</h1>"); 
             out.println("</body>");
             out.println("</html>");
         }

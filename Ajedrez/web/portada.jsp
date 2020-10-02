@@ -14,6 +14,8 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/custom.js"></script>
         <title>Ajedrez</title>
     </head>
     
@@ -50,7 +52,7 @@
                 <a class="bg-dark botonesJuego enlaceAyuda" href="Ayuda.html">Ayuda</a>
                 <a class="bg-dark botonesJuego" data-toggle="modal" data-target="#exampleModal">Nosotros</a>
             </div>
-        </div>
+        </div>        
         
         <!-- Modal  Inicio Juego -->
         <div class="modal fade" id="exampleModalJuego" tabindex="-1" aria-labelledby="exampleModalJuego" aria-hidden="true">
@@ -62,28 +64,49 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                  
-                  <input type="text" class="form-control" placeholder="Username uno">
-                  <br>
-                  <input type="text" class="form-control" placeholder="Username dos">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="bg-dark botonesJuegoInicio" data-dismiss="modal">Cerrar</button>
-                <form action="Tablero" method="post">
-                    <button type="submit" class="bg-dark botonesJuegoInicio">Iniciar Juego</button>
+                <div class="modal-body" style="display: flex; justify-content: space-between;">           
+                    <div class="body-left text-center">
+                        <input type="text" class="form-control" id="jugadorA" placeholder="jugador A">
+                        <br>
+                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "primero" %>" id="Check1">
+                        <label class="form-check-label" for="defaultCheck1">Equipo A</label>                        
+                    </div>                  
+                    <div class="body-right text-center">  
+                      <input type="text" class="form-control" id="jugadorB" placeholder="jugador B">
+                        <br>
+                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "segundo" %>" id="Check2">
+                        <label class="form-check-label" for="defaultCheck1">Equipo B</label>                        
+                    </div>                                               
+                </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="bg-dark botonesJuegoInicio m-0" data-dismiss="modal">Cerrar</button>
+                <form action="Tablero" method="post">                    
+                    <input type="hidden" name="dato1" id="dato1">
+                    <input type="hidden" name="nombre1html" id="nombre1html">
+                    <input type="hidden" name="dato2" id="dato2">
+                    <input type="hidden" name="nombre2html" id="nombre2html">                    
+                    <button type="submit" id="game" class="bg-dark botonesJuegoInicio">Iniciar Juego</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+                        
+        <script>            
+            /*obtencion de valores de los checkbox*/
+            var dato1 = document.getElementById("Check1").value;                                
+            document.getElementById("dato1").value = dato1;           
+            
+            var dato2 = document.getElementById("Check2").value;            
+            document.getElementById("dato2").value = dato2;            
+        </script>
         
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nosotros</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -98,6 +121,14 @@
             </div>
           </div>
         </div>
+       
+        <% String t1 = request.getParameter("dato1");%>
+                        
+        <% String t2 = request.getParameter("dato2"); %>
+        
+        <% String nombreA = request.getParameter("nombre1html"); %>
+        
+        <% String nombreB = request.getParameter("nombre2html"); %>
         
     </body>
 </html>
