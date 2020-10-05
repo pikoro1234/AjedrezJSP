@@ -54,7 +54,8 @@ public class Tablero {
         for (int x=0; x < tablero.length; x++){
             for (int y=0; y < tablero[x].length; y++){
                 if (tablero[x][y] != null){
-                var += "<td class='filaColumna' data="+x+y+">"+tablero[x][y].getNombre()+"</td>";                    
+                var += "<td class='filaColumna' width='50' heigth='50' data="+x+y+">"+
+                        "<img src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                    
                 } else {
                     var += "<td class='filaColumna' data="+x+y+">"+"<p></p></td>";
                 }

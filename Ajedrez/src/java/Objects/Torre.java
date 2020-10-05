@@ -10,13 +10,14 @@ public class Torre extends Pieza{
     private String nombre;
     
     public Torre(){
-        super("Blanco","T");
+        super("Blanco","T","img/tn.png");
     }
     
     @Override
     public void isPossibleMoving() {
         
     }
+
 
     
 }

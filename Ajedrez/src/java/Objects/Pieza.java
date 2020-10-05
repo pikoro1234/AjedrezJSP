@@ -12,9 +12,10 @@ public abstract class Pieza {
     private String nombre;
     private String img;
     
-    public Pieza(String equipo,String nombre){
+    public Pieza(String equipo,String nombre,String img){
        this.equipo = equipo;
        this.nombre = nombre;
+       this.img = img;
     }
     
     public String getNombre(){
@@ -22,5 +23,9 @@ public abstract class Pieza {
     }
     
     public abstract void isPossibleMoving();
+   
+    public String getImage(){
+        return this.img;
+    }
       
 }
