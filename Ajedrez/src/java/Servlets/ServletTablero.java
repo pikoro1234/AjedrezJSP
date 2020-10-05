@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
+import Objects.Jugador;
 import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,16 +34,35 @@ public class ServletTablero extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletTablero</title>");            
+            out.println("<meta http-equiv='Content-Type' content='text/html'; charset=UTF-8'>");
+            out.println("<link rel='stylesheet' href='css/tableStyle.css'>");            
+            out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>");
+            out.println("<script src=\"js/customTablero.js\"></script>");                    
+            out.println("<title>Servlet ServletTablero</title>");  
             out.println("</head>");
             out.println("<body>");        
+           
             String t1 = request.getParameter("dato1");
             
             String t2 = request.getParameter("dato2");   
             
             String nombre1 = request.getParameter("nombre1html");
             
-            String nombre2 = request.getParameter("nombre2html");
+            String nombre2 = request.getParameter("nombre2html");            
+            
+            Jugador jugadorUno = new Jugador(nombre1,t1); 
+            
+            Jugador jugadorDos = new Jugador(nombre2,t2);
+            
+            out.println("datos del usuario: "+jugadorUno.getNombre()+" "+jugadorUno.getEquipo());
+            out.println("");                  
+            out.println("datos del usuario: "+jugadorDos.getNombre()+" "+jugadorDos.getEquipo()); 
+            
+            out.println("<input type=\"text\" name=\"valorFilaColumna\" id=\"valorFilaColumna\">");
+
+            String[] valoresFilasColumnas = request.getParameterValues("valor");                
+            
+            out.print("<h1 id='titulo'>"+Arrays.toString(valoresFilasColumnas)+" chivato"+"</h1>");
             
 
             
