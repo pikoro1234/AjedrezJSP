@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -46,11 +47,19 @@ public class ServletTablero extends HttpServlet {
             String nombre1 = request.getParameter("nombre1html");
             
             String nombre2 = request.getParameter("nombre2html");
-       
-            out.println("<h1>Servlet valor uno es " + t1 + "</h1>");
+            
+
+            
+            /*out.println("<h1>Servlet valor uno es " + t1 + "</h1>");
             out.println("<h1>Servlet valor dos es " + t2 + "</h1>"); 
             out.println("<h1>Servlet valor dos es " + nombre1 + "</h1>"); 
-            out.println("<h1>Servlet valor dos es " + nombre2 + "</h1>"); 
+            out.println("<h1>Servlet valor dos es " + nombre2 + "</h1>"); */
+            
+            
+            Tablero t = Tablero.get();
+            t.createBoard();
+            out.print(t.printBoard());
+            
             out.println("</body>");
             out.println("</html>");
         }

@@ -10,8 +10,7 @@ public class Torre extends Pieza{
     private String nombre;
     
     public Torre(){
-        super("Blanco");
-        this.nombre = "T";
+        super("Blanco","T");
     }
     
     @Override

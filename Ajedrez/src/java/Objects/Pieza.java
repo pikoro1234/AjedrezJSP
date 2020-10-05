@@ -10,9 +10,9 @@ public abstract class Pieza {
     private String equipo;
     private String nombre;
     
-    public Pieza(String equipo){
+    public Pieza(String equipo,String nombre){
        this.equipo = equipo;
-       this.nombre = "A";
+       this.nombre = nombre;
     }
     
     public String getNombre(){
