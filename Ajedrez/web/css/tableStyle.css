@@ -13,7 +13,7 @@ html body h1{
 }
 
 html body table{
-    width: 80%;
+    width: 45%;
     margin: 10px auto;
     border: 2px solid;
     /*border-collapse: collapse;*/
@@ -36,10 +36,19 @@ table tbody td{
     text-align: center;
     padding-top: 0px;
     padding-bottom: 0px;
+    height: 55px!important;    
 }
 
-table tbody colorCelda{
-   background-color: #E0FAEF!important;
-   padding: 200px;
+table tbody td .imagen-ficha{
+    padding: 4px;
+}
+
+.cambioColor{
+    background-color: #E0FAEF;
+}
+
+html body .contenedor-principal .card-java{
+    padding: 10px 30px;
+    
 }
 

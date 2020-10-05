@@ -1,11 +1,10 @@
 $(document).ready(function(){        
     
-    $(".filaColumna").click(function(){  
-        
+    $(".filaColumna").click(function(){         
         
         //pintado de la ficha aun falta mejorar 
-        $(this).css('background-color','#E0FAEF');   
-                                      
+        //$(this).css('background-color','#E0FAEF');  
+                                   
         var valorFilaColumna = $(this).attr("data"); 
         
         $("#valorFilaColumna").attr("value",valorFilaColumna);   
@@ -27,5 +26,10 @@ $(document).ready(function(){
          //$(this).appendTo('#another-container').fadeIn(500); 
           
     });//fin click ficha
+    
+     $(".filaColumna").hover(
+            function() {
+                $( this ).toggleClass("cambioColor");
+            });
     
 });//fin document

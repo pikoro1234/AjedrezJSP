@@ -35,7 +35,8 @@ public class ServletTablero extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<meta http-equiv='Content-Type' content='text/html'; charset=UTF-8'>");
-            out.println("<link rel='stylesheet' href='css/tableStyle.css'>");            
+            out.println("<link rel='stylesheet' href='css/tableStyle.css'>");
+            out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
             out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>");
             out.println("<script src=\"js/customTablero.js\"></script>");                    
             out.println("<title>Servlet ServletTablero</title>");  
@@ -52,30 +53,45 @@ public class ServletTablero extends HttpServlet {
             
             Jugador jugadorUno = new Jugador(nombre1,t1); 
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);
+            Jugador jugadorDos = new Jugador(nombre2,t2);                      
             
-            out.println("datos del usuario: "+jugadorUno.getNombre()+" "+jugadorUno.getEquipo());
-            out.println("");                  
-            out.println("datos del usuario: "+jugadorDos.getNombre()+" "+jugadorDos.getEquipo()); 
-            
-            out.println("<input type=\"text\" name=\"valorFilaColumna\" id=\"valorFilaColumna\">");
+            out.println("<input type=\"hidden\" name=\"valorFilaColumna\" id=\"valorFilaColumna\">");
 
             String[] valoresFilasColumnas = request.getParameterValues("valor");                
             
-            out.print("<h1 id='titulo'>"+Arrays.toString(valoresFilasColumnas)+" chivato"+"</h1>");
+            out.print("<br>");
+            out.print("<h1 id='titulo'>Tablero</h1>");
             
-
+            out.println("<div class='contenedor-principal d-flex justify-content-between'>");
+                out.println("<div class='user-left card-java'>");
+                    out.println("<div class=\"card\">\n" +
+                                    "  <div class=\"card-header text-center\">\n" +
+                                    "    Usuario A\n" +
+                                    "  </div>\n" +
+                                    "  <div class=\"card-body\">\n" +
+                                    "    <h5 class=\"card-title\">"+jugadorUno.getNombre()+"</h5>\n" +
+                                    "    <p class=\"card-text\"><strong>Equipo:</strong>"+jugadorUno.getEquipo()+"</p>\n" +                                    
+                                    "  </div>\n" +
+                                "</div>");
+                    out.println("</div>");
+                out.println("<div class='tablero card-java-tablero'>");
+                    Tablero t = Tablero.get();
+                    t.createBoard();
+                    out.print(t.printBoard());                
+                out.println("</div>");
+                out.println("<div class='user-rigth card-java'>");
+                out.println("<div class=\"card\">\n" +
+                                    "  <div class=\"card-header text-center\">\n" +
+                                    "    Usuario B\n" +
+                                    "  </div>\n" +
+                                    "  <div class=\"card-body\">\n" +
+                                    "    <h5 class=\"card-title\">"+jugadorDos.getNombre()+"</h5>\n" +
+                                    "    <p class=\"card-text\"><strong>Equipo:</strong>"+jugadorDos.getEquipo()+"</p>\n" +                                    
+                                    "  </div>\n" +
+                            "</div>");
+                out.println("</div>");
             
-            /*out.println("<h1>Servlet valor uno es " + t1 + "</h1>");
-            out.println("<h1>Servlet valor dos es " + t2 + "</h1>"); 
-            out.println("<h1>Servlet valor dos es " + nombre1 + "</h1>"); 
-            out.println("<h1>Servlet valor dos es " + nombre2 + "</h1>"); */
-            
-            
-            Tablero t = Tablero.get();
-            t.createBoard();
-            out.print(t.printBoard());
-            
+            out.println("</div>");                                
             out.println("</body>");
             out.println("</html>");
         }
