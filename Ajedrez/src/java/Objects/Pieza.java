@@ -5,10 +5,12 @@
  */
 package Objects;
 
+
 public abstract class Pieza {
 
     private String equipo;
     private String nombre;
+    private String img;
     
     public Pieza(String equipo,String nombre){
        this.equipo = equipo;
@@ -20,5 +22,5 @@ public abstract class Pieza {
     }
     
     public abstract void isPossibleMoving();
-    
+      
 }

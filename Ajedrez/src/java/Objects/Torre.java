@@ -17,5 +17,6 @@ public class Torre extends Pieza{
     public void isPossibleMoving() {
         
     }
+
     
 }

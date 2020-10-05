@@ -13,7 +13,7 @@ public class Tablero {
     private Pieza[][] tablero;
     
     private Tablero(){
-        tablero = new Pieza[9][9];    
+        tablero = new Pieza[8][8];    
         createBoard();
     
     }
@@ -28,9 +28,9 @@ public class Tablero {
     public void createBoard(){
         
         tablero[0][0] = new Torre();
-        tablero[0][8] = new Torre();
-        tablero[8][0] = new Torre();
-        tablero[8][8] = new Torre();
+        tablero[0][7] = new Torre();
+        tablero[7][0] = new Torre();
+        tablero[7][7] = new Torre();
         
     }
     
