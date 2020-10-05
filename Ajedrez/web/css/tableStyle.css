@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-oct-2020, 16:54:46
+    Author     : jorge
+*/
+
+html body h1{
+    text-align: center;
+}
+
+html body table{
+    width: 80%;
+    margin: 10px auto;
+    border: 2px solid;
+    /*border-collapse: collapse;*/
+}
+
+table thead{
+    margin-bottom: 10px;
+}
+
+table thead tr th{
+   border: 2px solid;
+   padding-top: 35px;
+   padding-bottom: 35px;
+   margin-bottom: 10px;
+   background-color: red;
+}
+
+table tbody td{
+    border: 2px solid;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+table tbody colorCelda{
+   background-color: #E0FAEF!important;
+   padding: 200px;
+}
+
