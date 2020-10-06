@@ -5,7 +5,7 @@
  */
 package Objects;
 
-public class Torre extends Pieza{
+public class Torre extends Pieza {
     
     private String nombre;
     
@@ -17,7 +17,6 @@ public class Torre extends Pieza{
     public void isPossibleMoving() {
         
     }
-
 
     
 }

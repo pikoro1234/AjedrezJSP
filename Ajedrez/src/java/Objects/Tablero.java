@@ -32,6 +32,14 @@ public class Tablero {
         tablero[7][0] = new Torre();
         tablero[7][7] = new Torre();
         
+        for (int i=0;i<tablero[1].length;i++){
+            tablero[1][i] = new Peon("blanco");
+        }
+
+        for (int i=0;i<tablero[6].length;i++){
+            tablero[6][i] = new Peon("negro");
+        }
+        
     }
     
     public String printBoard(){
@@ -44,10 +52,22 @@ public class Tablero {
         for (int x=0; x < tablero.length; x++){
             for (int y=0; y < tablero[x].length; y++){
                 if (tablero[x][y] != null){
-                var += "<td class='filaColumna' width='50' heigth='80' data="+x+y+">"+
-                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                    
+                    if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
+                    var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+">"+
+                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                         
+                    } else {
+                    var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+">"+
+                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                         
+                    }
+                   
                 } else {
-                    var += "<td class='filaColumna' width='50' heigth='80' data="+x+y+">"+"<img class='imagen-ficha' src='img/transparente.jpg' width='50' heigth='50'"+"</td>";
+                    if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
+                        var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+"></td>";                    
+                    } else {
+                        var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+"></td>";
+   
+                    }
+
                 }
             }
               var +="</tr>";
@@ -57,4 +77,6 @@ public class Tablero {
         
         return var;
     }
+    
+
 }

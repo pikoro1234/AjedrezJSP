@@ -25,7 +25,24 @@ public abstract class Pieza {
     public abstract void isPossibleMoving();
    
     public String getImage(){
+        if (equipo.equalsIgnoreCase("blancas")){
+            setEquipo("pb");
+        } else {
+            setEquipo("pn");
+        }
+        
+        String [] a =img.split("/");
+        String s = a[1].substring(1, a[1].length());
+        a[1] = s;
         return this.img;
+    }
+    
+    public void setImage(String path){
+        this.img = path;       
+    }
+    
+    public void setEquipo(String equipo){
+        this.equipo = equipo;
     }
       
 }
