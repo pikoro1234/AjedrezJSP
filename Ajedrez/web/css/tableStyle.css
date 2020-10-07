@@ -44,7 +44,7 @@ table tbody td .imagen-ficha{
 }
 
 .cambioColor{
-    background-color: #E0FAEF;
+    background-color: red!important;
 }
 
 html body .contenedor-principal .card-java{

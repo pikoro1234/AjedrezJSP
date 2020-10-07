@@ -38,7 +38,8 @@ public class ServletTablero extends HttpServlet {
             out.println("<link rel='stylesheet' href='css/tableStyle.css'>");
             out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
             out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>");
-            out.println("<script src=\"js/customTablero.js\"></script>");                    
+            out.println("<script src=\"js/customTablero.js\"></script>");
+            out.println("<script src=\"js/customMovimientos.js\"></script>");                    
             out.println("<title>Servlet ServletTablero</title>");  
             out.println("</head>");
             out.println("<body>");        

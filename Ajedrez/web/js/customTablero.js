@@ -27,9 +27,10 @@ $(document).ready(function(){
           
     });//fin click ficha
     
-     $(".filaColumna").hover(
-            function() {
-                $( this ).toggleClass("cambioColor");
-            });
+    $(".filaColumna").hover(
+        function() {
+            $( this ).toggleClass("cambioColor");
+    });
+
     
 });//fin document
