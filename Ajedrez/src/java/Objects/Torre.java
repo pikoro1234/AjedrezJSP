@@ -9,8 +9,8 @@ public class Torre extends Pieza {
     
     private String nombre;
     
-    public Torre(){
-        super("Blanco","T","img/tn.png");
+    public Torre(String equipo){
+        super(equipo,"T","img/t.png");
     }
     
     @Override

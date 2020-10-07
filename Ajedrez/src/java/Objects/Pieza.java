@@ -15,7 +15,7 @@ public abstract class Pieza {
     public Pieza(String equipo,String nombre,String img){
        this.equipo = equipo;
        this.nombre = nombre;
-       this.img = img;
+       setImage(img);
     }
     
     public String getNombre(){
@@ -25,24 +25,21 @@ public abstract class Pieza {
     public abstract void isPossibleMoving();
    
     public String getImage(){
-        if (equipo.equalsIgnoreCase("blancas")){
-            setEquipo("pb");
-        } else {
-            setEquipo("pn");
+        return img;
+    }
+    
+    public final void setImage(String path){
+        if (equipo.equalsIgnoreCase("Blanco") && !(equipo.isEmpty())){
+            String[] a = path.split("/");
+            a[1] = "/blancas/"+nombre.toLowerCase()+"b.png";
+            this.img = String.join("",a);
+        } else if (equipo.equalsIgnoreCase("Negro") && !(equipo.isEmpty())){
+            String a[] = path.split("/");
+            a[1] = "/negras/"+nombre.toLowerCase()+"n.png";
+            this.img = String.join("",a);
         }
-        
-        String [] a =img.split("/");
-        String s = a[1].substring(1, a[1].length());
-        a[1] = s;
-        return this.img;
     }
-    
-    public void setImage(String path){
-        this.img = path;       
-    }
-    
-    public void setEquipo(String equipo){
-        this.equipo = equipo;
-    }
+   
+ 
       
 }

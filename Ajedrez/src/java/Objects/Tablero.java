@@ -27,10 +27,10 @@ public class Tablero {
     
     public void createBoard(){
         
-        tablero[0][0] = new Torre();
-        tablero[0][7] = new Torre();
-        tablero[7][0] = new Torre();
-        tablero[7][7] = new Torre();
+        tablero[0][0] = new Torre("blanco");
+        tablero[0][7] = new Torre("blanco");
+        tablero[7][0] = new Torre("negro");
+        tablero[7][7] = new Torre("negro");
         
         for (int i=0;i<tablero[1].length;i++){
             tablero[1][i] = new Peon("blanco");

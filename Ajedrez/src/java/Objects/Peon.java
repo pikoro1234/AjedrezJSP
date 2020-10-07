@@ -12,7 +12,7 @@ package Objects;
 public class Peon extends Pieza {
 
     public Peon(String equipo) {
-        super("blanco", "P", "img/p.png");
+        super(equipo, "P", "img/p.png");
 
     }
 
