@@ -32,6 +32,16 @@ public class Tablero {
         tablero[7][0] = new Torre("negro");
         tablero[7][7] = new Torre("negro");
         
+        tablero[0][1] = new Caballo("blanco");
+        tablero[0][6] = new Caballo("blanco");
+        tablero[7][1] = new Caballo("negro");
+        tablero[7][6] = new Caballo("negro");
+
+        tablero[0][2] = new Alfil("blanco");
+        tablero[0][5] = new Alfil("blanco");
+        tablero[7][2] = new Alfil("negro");
+        tablero[7][5] = new Alfil("negro");
+        
         for (int i=0;i<tablero[1].length;i++){
             tablero[1][i] = new Peon("blanco");
         }

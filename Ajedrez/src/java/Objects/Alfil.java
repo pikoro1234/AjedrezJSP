@@ -5,16 +5,17 @@
  */
 package Objects;
 
-public class Peon extends Pieza {
-    
-    public Peon(String equipo) {
-        super(equipo, "P", "img/p.png");
+public class Alfil extends Pieza {
 
+    public Alfil(String equipo) {
+        super(equipo,"A", "img/a.png");
     }
 
-
+    
+    
     @Override
     public void isPossibleMoving() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
