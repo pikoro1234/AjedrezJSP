@@ -63,11 +63,19 @@ public class Tablero {
             for (int y=0; y < tablero[x].length; y++){
                 if (tablero[x][y] != null){
                     if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
-                    var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+">"+
-                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                         
+                    var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                            "<form action='Tablero' method='get'>"
+                            +"<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                            "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
+                            + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                            + "<input type='submit' class='Envio' value='Enviar'></form></td>";                         
                     } else {
-                    var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+">"+
-                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'"+"</td>";                         
+                    var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                            "<form action='Tablero' method='get'>"+
+                        "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                             "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
+                            + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                            + "<input type='submit' class='Envio' value='Enviar'></form></td>";                         
                     }
                    
                 } else {

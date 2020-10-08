@@ -7,15 +7,26 @@ $(document).ready(function(){
                                    
         var valorFilaColumna = $(this).attr("data"); 
         
-        $("#valorFilaColumna").attr("value",valorFilaColumna);   
+        var valorObjeto = $(this).attr("nombre");
         
-        var valor = $("#valorFilaColumna").val();       
+        $("#valorFilaColumna").attr("value",valorFilaColumna); 
+        
+        $("#valorObjeto").attr("value",valorObjeto);
+        
+        
+        
+        var valor = $("#valorFilaColumna").val();  
+        
+        var valorObjeto = $("#valorObjeto").val();
         $.ajax({
             type : 'POST',
             url: 'Tablero',            
-            data : {valor : valor},
+            data : {
+                valorEnviar : valor,
+                valorObjetoEnviar : valorObjeto
+            },
             success: function(data) {		
-                $('#titulo').html(valor);
+                //$('#titulo').html(valor+" "+valorObjeto);
             },
             error: function() {
                 console.log("No se ha podido obtener la información");

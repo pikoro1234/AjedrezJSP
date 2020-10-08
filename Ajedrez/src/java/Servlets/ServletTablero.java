@@ -1,6 +1,7 @@
 package Servlets;
 
 import Objects.Jugador;
+import Objects.Peon;
 import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ServletTablero", urlPatterns = {"/Tablero"})
 public class ServletTablero extends HttpServlet {
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -30,7 +31,6 @@ public class ServletTablero extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -38,31 +38,33 @@ public class ServletTablero extends HttpServlet {
             out.println("<link rel='stylesheet' href='css/tableStyle.css'>");
             out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
             out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>");
-            out.println("<script src=\"js/customTablero.js\"></script>");
-            out.println("<script src=\"js/customMovimientos.js\"></script>");                    
+            out.println("<script src=\"js/customTablero.js\"></script>");                               
             out.println("<title>Servlet ServletTablero</title>");  
             out.println("</head>");
-            out.println("<body>");        
-           
+            out.println("<body>");    
+                        
+            //equipos
             String t1 = request.getParameter("dato1");
             
             String t2 = request.getParameter("dato2");   
             
+            //nombres usuarios
             String nombre1 = request.getParameter("nombre1html");
             
-            String nombre2 = request.getParameter("nombre2html");            
+            String nombre2 = request.getParameter("nombre2html"); 
             
+            //creacion de jugadores
             Jugador jugadorUno = new Jugador(nombre1,t1); 
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);                      
+            Jugador jugadorDos = new Jugador(nombre2,t2);                                    
+                            
+            //coordenadas y valor de objeto ficha
+            String valorCoordenada = request.getParameter("envioCoordenada");
             
-            out.println("<input type=\"hidden\" name=\"valorFilaColumna\" id=\"valorFilaColumna\">");
-
-            String[] valoresFilasColumnas = request.getParameterValues("valor");                
-            
+            String valorObjeto = request.getParameter("envioNombre");                                      
+                                                          
             out.print("<br>");
-            out.print("<h1 id='titulo'>Tablero</h1>");
-            
+            out.print("<h1 id='titulo' name='titulo'>Tablero</h1>");            
             out.println("<div class='contenedor-principal d-flex justify-content-between'>");
                 out.println("<div class='user-left card-java'>");
                     out.println("<div class=\"card\">\n" +
@@ -76,9 +78,10 @@ public class ServletTablero extends HttpServlet {
                                 "</div>");
                     out.println("</div>");
                 out.println("<div class='tablero card-java-tablero'>");
+                out.print("<h2 class='cambioValores'>"+valorCoordenada+" "+valorObjeto+"</h2>");
                     Tablero t = Tablero.get();
                     t.createBoard();
-                    out.print(t.printBoard());                
+                    out.print(t.printBoard());                                                         
                 out.println("</div>");
                 out.println("<div class='user-rigth card-java'>");
                 out.println("<div class=\"card\">\n" +
@@ -125,6 +128,7 @@ public class ServletTablero extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+                
     }
 
     /**
