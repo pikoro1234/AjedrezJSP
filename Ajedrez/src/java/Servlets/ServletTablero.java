@@ -61,7 +61,8 @@ public class ServletTablero extends HttpServlet {
             //coordenadas y valor de objeto ficha
             String valorCoordenada = request.getParameter("envioCoordenada");
             
-            String valorObjeto = request.getParameter("envioNombre");                                      
+            String valorObjeto = request.getParameter("envioNombre");  
+            
                                                           
             out.print("<br>");
             out.print("<h1 id='titulo' name='titulo'>Tablero</h1>");            
