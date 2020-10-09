@@ -80,7 +80,7 @@
                 </div>
               <div class="modal-footer justify-content-center">
                 <button type="button" class="bg-dark botonesJuegoInicio m-0" data-dismiss="modal">Cerrar</button>
-                <form action="Tablero" method="post">                    
+                <form action="JspTest.jsp" method="post">                    
                     <input type="hidden" name="dato1" id="dato1">
                     <input type="hidden" name="nombre1html" id="nombre1html">
                     <input type="hidden" name="dato2" id="dato2">

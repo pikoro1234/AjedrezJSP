@@ -64,18 +64,18 @@ public class Tablero {
                 if (tablero[x][y] != null){
                     if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
                     var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
-                            "<form action='Tablero' method='get'>"
+                            "<form action='Tablero' class='formularioDatos'>"
                             +"<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
                             "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
                             + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
-                            + "<input type='submit' class='Envio' value='Enviar'></form></td>";                         
+                            + "<input type='button' class='btnEnviar' value='send'></form></td>";                         
                     } else {
                     var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
-                            "<form action='Tablero' method='get'>"+
+                            "<form action='Tablero' class='formularioDatos'>"+
                         "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
                              "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
                             + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
-                            + "<input type='submit' class='Envio' value='Enviar'></form></td>";                         
+                            + "<input type='button' class='btnEnviar' value='Send'></form></td>";                         
                     }
                    
                 } else {
@@ -94,6 +94,21 @@ public class Tablero {
         var +="</tbody></table>";
         
         return var;
+    }
+    
+    
+    public String pruebaMetodo (String coordenada, String tipoFicha){
+        
+        String valores = "";
+        
+        if (coordenada.equals("00")) {
+            valores = "si el dato nos vino correctamente";
+        }else{
+            valores = "nos fuimos por el falso";
+        }        
+       
+        return valores;
+       
     }
     
 

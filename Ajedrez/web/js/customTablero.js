@@ -1,47 +1,62 @@
-$(document).ready(function(){        
+$(document).ready(function(){ 
     
-    $(".filaColumna").click(function(){         
+    //e.preventDefault(); return false; quitar evento de recarga formulario 
+    
+    var coordenadasJs ="";
+     
+    var objetoNombreJs = "";
+    
+    $(".filaColumna").click(function(e){
         
-        //pintado de la ficha aun falta mejorar 
-        //$(this).css('background-color','#E0FAEF');  
-                                   
-        var valorFilaColumna = $(this).attr("data"); 
+        coordenadasJs = $(this).attr("data");
         
-        var valorObjeto = $(this).attr("nombre");
+        objetoNombreJs = $(this).attr("nombre");               
         
-        $("#valorFilaColumna").attr("value",valorFilaColumna); 
-        
-        $("#valorObjeto").attr("value",valorObjeto);
-        
-        
-        
-        var valor = $("#valorFilaColumna").val();  
-        
-        var valorObjeto = $("#valorObjeto").val();
         $.ajax({
-            type : 'POST',
-            url: 'Tablero',            
-            data : {
-                valorEnviar : valor,
-                valorObjetoEnviar : valorObjeto
+            type:'POST',
+            url:'Tablero',
+            data:{
+                coordenadaServ : coordenadasJs,
+                objetoNombreServ : objetoNombreJs
             },
-            success: function(data) {		
-                //$('#titulo').html(valor+" "+valorObjeto);
+            success: function(data){   
+                //$("body").empty();
+                $(".contenido-rigth").html(data);
+                console.log("exito...");
+                console.log(data);
             },
-            error: function() {
-                console.log("No se ha podido obtener la información");
-            }
+            error: function(){
+                console.log("error al ejecutar ajax");
+            }                                    
         });//fin ajax
         
-       // $(this).appendTo('.imagenFichas').fadeIn(500);
-         //$(this).appendTo('#another-container').fadeIn(500); 
+        e.preventDefault();
+        
+    });
           
-    });//fin click ficha
-    
     $(".filaColumna").hover(
         function() {
             $( this ).toggleClass("cambioColor");
     });
-
+    
+    //inicio nuevo juego
+    $("#btnGame").click(function(e){        
+           $.ajax({
+            type:'POST',
+            url:'Tablero',          
+            success: function(response){   
+                //$("body").empty();
+                $(".contenido-rigth").html(response);
+                console.log("exito...");
+                console.log(response);
+            },
+            error: function(){
+                console.log("error al ejecutar ajax");
+            }                                    
+        });//fin ajax
+        
+       e.preventDefault();
+        
+    });
     
 });//fin document
