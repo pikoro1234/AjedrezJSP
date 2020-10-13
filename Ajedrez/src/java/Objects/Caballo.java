@@ -14,7 +14,7 @@ public class Caballo extends Pieza {
     
     
     @Override
-    public void isPossibleMoving() {
+    public void isPossibleMoving(int x,int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

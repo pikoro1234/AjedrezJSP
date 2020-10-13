@@ -10,7 +10,7 @@ import static java.lang.System.out;
 public class Tablero {
     
     private static Tablero instance;
-    private Pieza[][] tablero;
+    public Pieza[][] tablero;
     
     private Tablero(){
         tablero = new Pieza[8][8];    
@@ -23,6 +23,10 @@ public class Tablero {
             instance = new Tablero();
         }
         return instance;
+    }
+    
+    public Pieza getPieza(int x,int y){
+        return tablero[x][y];
     }
     
     public void createBoard(){

@@ -102,11 +102,13 @@ public class ServletTablero extends HttpServlet {
                                 "</div>");
                     out.println("</div>");
                 out.println("<div class='tablero card-java-tablero'>");*/
-                
+                    int x,y;
                     Tablero t = Tablero.get();
-                    t.createBoard();
+                    //t.createBoard();
                     out.print(t.printBoard()); 
-                    
+                    x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
+                    y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
+                    t.getPieza(x, y).isPossibleMoving(x, y);
                     
                     
                     out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));

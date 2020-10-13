@@ -14,7 +14,7 @@ public class Torre extends Pieza {
     }
     
     @Override
-    public void isPossibleMoving() {
+    public void isPossibleMoving(int x,int y) {
         
     }
 

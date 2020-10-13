@@ -22,10 +22,14 @@ public abstract class Pieza {
         return this.nombre;
     }
     
-    public abstract void isPossibleMoving();
+    public abstract void isPossibleMoving(int x,int y);
    
     public String getImage(){
         return img;
+    }
+    
+    public String getEquipo(){
+        return equipo;
     }
     
     public final void setImage(String path){
