@@ -60,3 +60,29 @@ html body .contenedor-principal .card-java{
     background-color: #E7E7B7;
 }
 
+table tbody tr td .btnEnviar{
+    display: none;
+}
+
+.contenedor-principal{
+    flex-direction: row-reverse;
+}
+
+.contenedor-principal .contenido-left,
+.contenedor-principal .contenido-rigth{
+    width: 50%;
+}
+
+.contenido-left .card-java{
+    display: flex;    
+}
+
+.contenido-left .card-java .card{
+    margin: 10px;
+}
+
+.contenedor-principal .contenido-left .card-java,
+.contenedor-principal .contenido-rigth .card-java{
+    width: 100%;
+}
+
