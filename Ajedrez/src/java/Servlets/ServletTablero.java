@@ -56,16 +56,19 @@ public class ServletTablero extends HttpServlet {
             String t2 = request.getParameter("dato2"); 
             
             //creacion de jugadores
-            Jugador jugadorUno = new Jugador(nombre1,t1); 
+            Jugador jugadorUno = new Jugador(nombre1,t1);
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);    
+            Jugador jugadorDos = new Jugador(nombre2,t2);   
             
                             
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
             
-            String tipoFichaTablero = request.getParameter("objetoNombreServ");                     
-                                                          
+            String tipoFichaTablero = request.getParameter("objetoNombreServ");
+
+            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
+
+
             /*out.print("<br>");
             out.print("<h1 id='titulo' name='titulo'>Tablero"+coordenada+" "+tipoFichaTablero+"</h1>");            
             out.println("<div class='contenedor-principal d-flex justify-content-between'>");
@@ -110,10 +113,8 @@ public class ServletTablero extends HttpServlet {
                     y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
                     t.getPieza(x, y).isPossibleMoving(x, y);
                     
-                    out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));
-                    
-                    out.println("datos enviados de coordenadas"+coordenada+" "+tipoFichaTablero);
-                    
+                    //out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));
+                                        
                 /*out.println("</div>");
                 out.println("<div class='user-rigth card-java'>");
                 out.println("<div class=\"card\">\n" +

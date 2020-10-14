@@ -33,7 +33,7 @@ $(document).ready(function(){
         e.preventDefault();
         
     });
-          
+              
     $(".filaColumna").hover(
         function() {
             $( this ).toggleClass("cambioColor");
