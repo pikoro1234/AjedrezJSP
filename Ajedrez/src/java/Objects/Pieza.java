@@ -32,6 +32,10 @@ public abstract class Pieza {
         return equipo;
     }
     
+    public Pieza getPieza(){
+        return this;
+    }
+    
     public final void setImage(String path){
         if (equipo.equalsIgnoreCase("Blanco") && !(equipo.isEmpty())){
             String[] a = path.split("/");

@@ -110,7 +110,6 @@ public class ServletTablero extends HttpServlet {
                     y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
                     t.getPieza(x, y).isPossibleMoving(x, y);
                     
-                    
                     out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));
                     
                     out.println("datos enviados de coordenadas"+coordenada+" "+tipoFichaTablero);
