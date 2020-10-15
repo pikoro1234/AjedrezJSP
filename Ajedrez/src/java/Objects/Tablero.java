@@ -103,22 +103,5 @@ public class Tablero {
         var +="</tbody></table>";
         
         return var;
-    }
-    
-    
-    public String pruebaMetodo (String coordenada, String tipoFicha){
-        
-        String valores = "";
-        
-        if (coordenada.equals("00")) {
-            valores = "si el dato nos vino correctamente";
-        }else{
-            valores = "nos fuimos por el falso";
-        }        
-       
-        return valores;
-       
-    }
-    
-
+    }        
 }

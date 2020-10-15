@@ -42,8 +42,7 @@ public class ServletTablero extends HttpServlet {
             out.println("<script src='http://code.jquery.com/jquery-1.9.1.js'></script>");
             out.println("<script src=\"js/customTablero.js\"></script>");                               
             out.println("<title>Servlet ServletTablero</title>");  
-            out.println("</head>");
-            //out.println("<body>");   */                                          
+            out.println("</head>");                                                     
             
             //nombres usuarios
             String nombre1 = request.getParameter("nombre1html");
@@ -56,102 +55,28 @@ public class ServletTablero extends HttpServlet {
             String t2 = request.getParameter("dato2"); 
             
             //creacion de jugadores
-            Jugador jugadorUno = new Jugador(nombre1,t1);
+            Jugador jugadorUno = new Jugador(nombre1,t1); 
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);   
-            
+            Jugador jugadorDos = new Jugador(nombre2,t2);                
                             
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
             
-            String tipoFichaTablero = request.getParameter("objetoNombreServ");
-
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
-
-
-            /*out.print("<br>");
-            out.print("<h1 id='titulo' name='titulo'>Tablero"+coordenada+" "+tipoFichaTablero+"</h1>");            
-            out.println("<div class='contenedor-principal d-flex justify-content-between'>");
-                out.println("<div class='user-left card-java'>");
-                    out.println("<div class=\"card\">\n" +
-                                    "  <div class=\"card-header text-center\">\n" +
-                                    "    Usuario A\n" +
-                                    "  </div>\n" +
-                                    "  <div class=\"card-body\">\n" +
-                                    "    <h5 class=\"card-title titleJugador-uno\">"+jugadorUno.getNombre()+"</h5>\n" +
-                                    "    <p class=\"card-text\"><strong>Equipo:</strong>"+jugadorUno.getEquipo()+"</p>\n" +                                    
-                                    "  </div>\n" +
-                                "</div>");
-                    out.println("<br>");
-                    out.println("<br>");
-                    out.println("<div class=\"card\">\n" +
-                                    "  <div class=\"card-header text-center\">\n" +
-                                    "    Cementerio\n" +
-                                    "  </div>\n" +
-                                    "  <div class=\"card-body\">\n" +
-                                    "<table class=\"table table-striped\">\n" +
-            "  <thead>    \n" +
-            "  </thead>\n" +
-            "  <tbody>\n" +
-            "    <tr>\n" +
-            "      <td>Mark</td>\n" +
-            "      <td>Mark</td>\n" +
-            "      <td>Mark</td>\n" +
-            "      <td>Mark</td>\n" +
-            "    </tr>    \n" +
-            "  </tbody>\n" +
-            "</table>"+                                       
-                                    "  </div>\n" +
-                                "</div>");
-                    out.println("</div>");
-                out.println("<div class='tablero card-java-tablero'>");*/
-                    int x,y;
-                    Tablero t = Tablero.get();
-                    //t.createBoard();
-                    out.print(t.printBoard()); 
-                    x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
-                    y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
-                    t.getPieza(x, y).isPossibleMoving(x, y);
-                    
-                    //out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));
-                                        
-                /*out.println("</div>");
-                out.println("<div class='user-rigth card-java'>");
-                out.println("<div class=\"card\">\n" +
-                                    "  <div class=\"card-header text-center\">\n" +
-                                    "    Usuario B\n" +
-                                    "  </div>\n" +
-                                    "  <div class=\"card-body\">\n" +
-                                    "    <h5 class=\"card-title titleJugador-dos\">"+jugadorDos.getNombre()+"</h5>\n" +
-                                    "    <p class=\"card-text\"><strong>Equipo:</strong>"+jugadorDos.getEquipo()+"</p>\n" +                                    
-                                    "  </div>\n" +
-                            "</div>");
-                out.println("<br>");
-                out.println("<br>");
-                out.println("<div class=\"card\">\n" +
-                                    "  <div class=\"card-header text-center\">\n" +
-                                    "    Cementerio\n" +
-                                    "  </div>\n" +
-                                    "  <div class=\"card-body\">\n" +
-                                    "<table class=\"table table-striped\">\n" +
-                                    "  <thead>    \n" +
-                                    "  </thead>\n" +
-                                    "  <tbody>\n" +
-                                    "    <tr>\n" +
-                                    "      <td>Mark</td>\n" +
-                                    "      <td>Mark</td>\n" +
-                                    "      <td>Mark</td>\n" +
-                                    "      <td>Mark</td>\n" +
-                                    "    </tr>    \n" +
-                                    "  </tbody>\n" +
-                                    "</table>"+   
-                                    "</div>\n" +
-                                "</div>");
-                out.println("</div>");
+            String tipoFichaTablero = request.getParameter("objetoNombreServ");           
+          
+            int x,y;
             
-            out.println("</div>");                                
-            out.println("</body>");
-            out.println("</html>");*/
+            Tablero t = Tablero.get();
+            
+            out.print(t.printBoard()); 
+            
+            x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
+            
+            y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
+            
+            t.getPieza(x, y).isPossibleMoving(x, y);  
+            
+            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
         }
     }
 

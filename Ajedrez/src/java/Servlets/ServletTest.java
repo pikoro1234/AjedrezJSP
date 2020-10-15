@@ -36,7 +36,7 @@ public class ServletTest extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             Tablero t = Tablero.get();
-            //t.createBoard();
+            
             out.print(t.printBoard());
             
         }
