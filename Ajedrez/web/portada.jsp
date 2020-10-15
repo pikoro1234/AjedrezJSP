@@ -68,13 +68,13 @@
                     <div class="body-left text-center">
                         <input type="text" class="form-control" id="jugadorA" placeholder="jugador A">
                         <br>
-                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "blancas" %>" id="Check1">
+                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "blanco" %>" id="Check1">
                         <label class="form-check-label" for="defaultCheck1">Equipo A</label>                        
                     </div>                  
                     <div class="body-right text-center">  
                       <input type="text" class="form-control" id="jugadorB" placeholder="jugador B">
                         <br>
-                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "negras" %>" id="Check2">
+                        <input class="form-check-input" type="checkbox" checked="true" value="<%= "negro" %>" id="Check2">
                         <label class="form-check-label" for="defaultCheck1">Equipo B</label>                        
                     </div>                                               
                 </div>

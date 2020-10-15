@@ -1,6 +1,7 @@
 package Servlets;
 
 import Objects.Jugador;
+import Objects.Partida;
 import Objects.Peon;
 import Objects.Tablero;
 import java.io.IOException;
@@ -106,12 +107,13 @@ public class ServletTablero extends HttpServlet {
                     out.println("</div>");
                 out.println("<div class='tablero card-java-tablero'>");*/
                     int x,y;
-                    Tablero t = Tablero.get();
-                    //t.createBoard();
-                    out.print(t.printBoard()); 
+                    
+                    Partida p = new Partida(jugadorUno,jugadorDos);
+                    
+                    out.print(p.getTablero().printBoard()); 
                     x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
                     y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
-                    t.getPieza(x, y).isPossibleMoving(x, y);
+                    p.getTablero().getPieza(x, y).isPossibleMoving(x, y);
                     
                     //out.println(t.pruebaMetodo(coordenada,tipoFichaTablero));
                                         
