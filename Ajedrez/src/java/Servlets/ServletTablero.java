@@ -64,19 +64,20 @@ public class ServletTablero extends HttpServlet {
             String coordenada = request.getParameter("coordenadaServ");
             
             String tipoFichaTablero = request.getParameter("objetoNombreServ");           
-          
+            
             int x,y;
             
-            Tablero t = Tablero.get();
+            Partida p = new Partida(jugadorUno,jugadorDos);
             
-            out.print(t.printBoard()); 
+            out.print(p.getTablero().printBoard()); 
             
             x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             
             y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
             
-            t.getPieza(x, y).isPossibleMoving(x, y);  
+            p.getTablero().getPieza(x, y).isPossibleMoving(x, y);
             
+            out.println("Ronda: "+p.getRonda());
             out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
         }
     }

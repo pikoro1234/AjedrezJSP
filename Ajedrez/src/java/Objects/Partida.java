@@ -23,4 +23,12 @@ public class Partida {
         return t;
     }
     
+    public void sumarRonda(){
+        this.turno+=1;
+    }
+    
+    public int getRonda(){
+        return this.turno;
+    }
+    
 }

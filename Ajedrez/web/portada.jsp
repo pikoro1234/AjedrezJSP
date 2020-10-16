@@ -129,6 +129,6 @@
         <% String nombreA = request.getParameter("nombre1html"); %>
         
         <% String nombreB = request.getParameter("nombre2html"); %>
-        
+                
     </body>
 </html>
