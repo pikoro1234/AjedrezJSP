@@ -40,8 +40,9 @@ $(document).ready(function(){
     });
     
     //inicio nuevo juego
-    $("#btnGame").click(function(e){        
-           $.ajax({
+    $("#btnGame").click(function(e){  
+        alert("hola mundo");
+           /*$.ajax({
             type:'POST',
             url:'Tablero',          
             success: function(response){   
@@ -53,9 +54,9 @@ $(document).ready(function(){
             error: function(){
                 console.log("error al ejecutar ajax");
             }                                    
-        });//fin ajax
+        });*///fin ajax
         
-       e.preventDefault();
+       //e.preventDefault();
         
     });
     
