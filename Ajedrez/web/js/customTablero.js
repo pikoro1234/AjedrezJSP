@@ -40,24 +40,27 @@ $(document).ready(function(){
     });
     
     //inicio nuevo juego
-    $("#btnGame").click(function(e){  
-        alert("hola mundo");
-           /*$.ajax({
+    $("#btnGame").click(function(e){   
+        console.log($(".titleJugador-uno").text());
+        console.log($(".titleJugador-dos").text());
+           $.ajax({
             type:'POST',
-            url:'Tablero',          
+            url:'Tablero',
+            data: {
+              valorPrueba : "true"  
+            },
             success: function(response){   
-                //$("body").empty();
                 $(".contenido-rigth").html(response);
-                console.log("exito...");
+                console.log("enviamos todo el ajax...");
                 console.log(response);
             },
             error: function(){
                 console.log("error al ejecutar ajax");
             }                                    
-        });*///fin ajax
-        
-       //e.preventDefault();
-        
-    });
+        });//fin ajax   
+       e.preventDefault();        
+    });//fin nueva partida
+    
     
 });//fin document
+
