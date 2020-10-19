@@ -41,22 +41,24 @@ $(document).ready(function(){
     
     //inicio nuevo juego
     $("#btnGame").click(function(e){  
-        alert("hola mundo");
-           /*$.ajax({
+        console.log($(".titleJugador-uno").text());
+           $.ajax({
             type:'POST',
-            url:'Tablero',          
+            url:'Tablero',
+            data: {
+              valorPrueba : "true"  
+            },
             success: function(response){   
-                //$("body").empty();
                 $(".contenido-rigth").html(response);
-                console.log("exito...");
+                console.log("enviamos todo el ajax...");
                 console.log(response);
             },
             error: function(){
                 console.log("error al ejecutar ajax");
             }                                    
-        });*///fin ajax
+        });//fin ajax
         
-       //e.preventDefault();
+       e.preventDefault();
         
     });
     

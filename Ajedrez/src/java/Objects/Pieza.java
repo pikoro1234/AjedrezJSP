@@ -18,12 +18,14 @@ public abstract class Pieza {
        setImage(img);
     }
     
+    public Pieza(){}
+    
     public String getNombre(){
         return this.nombre;
     }
     
     public abstract void isPossibleMoving(int x,int y);
-   
+    
     public String getImage(){
         return img;
     }

@@ -27,7 +27,7 @@ public class Tablero {
     
     public Pieza getPieza(int x,int y){
         return tablero[x][y];
-    }
+    }            
     
     public void createBoard(){
         

@@ -2,6 +2,7 @@ package Servlets;
 
 import Objects.Jugador;
 import Objects.Peon;
+import Objects.Pieza;
 import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,6 +50,9 @@ public class ServletTablero extends HttpServlet {
             
             String nombre2 = request.getParameter("nombre2html"); 
             
+            //valor para nueva partida
+            String nuevaPartida = request.getParameter("valorPrueba");                       
+            
             //equipos
             String t1 = request.getParameter("dato1");
             
@@ -62,21 +66,31 @@ public class ServletTablero extends HttpServlet {
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
             
-            String tipoFichaTablero = request.getParameter("objetoNombreServ");           
-          
-            int x,y;
+            String tipoFichaTablero = request.getParameter("objetoNombreServ");
             
-            Tablero t = Tablero.get();
+           
             
-            out.print(t.printBoard()); 
+            if( nuevaPartida != null && request.getParameter("valorPrueba").equals("true")){
+                
+                
             
-            x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
+            }else{
+                
+                int x,y;
+                
+                Tablero t = Tablero.get();
             
-            y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
+                out.print(t.printBoard());
             
-            t.getPieza(x, y).isPossibleMoving(x, y);  
+                x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
+                y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
+            
+                t.getPieza(x, y).isPossibleMoving(x, y);  
+            
+                out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
+            }                        
+                                              
         }
     }
 

@@ -87,11 +87,11 @@
                     </div>
                 </div><!--fin user-rigth-->
                 <div class="user-center-button"> 
-                    <form class='formularioDatos'>                                                   
+                    <form class='formularioDatos' >                                                
+                        <input type="text" name="nombrePruebaTestUno" id="nombrePruebaTestUno" value="<%= nombreA %>">
+                        <input type="text" name="nombrePruebaTestDos" id="nombrePruebaTestDos" value="<%= nombreB %>">
                         <input type='button' id='btnGame' value='Nueva Partida'>
-                    </form> 
-                    
-                    
+                    </form>                                                    
                 </div><!--fin user center button-->
             </div>
             <div class="contenido-rigth">

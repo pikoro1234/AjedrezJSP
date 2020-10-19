@@ -19,5 +19,4 @@ public class Reina extends Pieza{
     public void isPossibleMoving(int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }
