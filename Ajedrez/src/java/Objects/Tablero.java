@@ -25,6 +25,10 @@ public class Tablero {
         return instance;
     }
     
+    public static void resetTablero(){
+        instance = null;
+    }
+    
     public Pieza getPieza(int x,int y){
         return tablero[x][y];
     }

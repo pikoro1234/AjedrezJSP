@@ -65,8 +65,12 @@ public class ServletTablero extends HttpServlet {
             
             String tipoFichaTablero = request.getParameter("objetoNombreServ");           
             
-            int x,y;
+            boolean reset = Boolean.valueOf(request.getParameter("valorPrueba"));
             
+            if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
+                Tablero.resetTablero();
+            }
+            int x,y;
             Partida p = new Partida(jugadorUno,jugadorDos);
             
             out.print(p.getTablero().printBoard()); 
