@@ -4,6 +4,8 @@
     Author     : jorge
 --%>
 
+<%@page import="Objects.Jugador"%>
+<%@page import="Objects.Partida"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,19 @@
         
         String nombreA = request.getParameter("nombre1html"); 
         
-        String nombreB = request.getParameter("nombre2html"); %>                  
+        String nombreB = request.getParameter("nombre2html");                 
+
+        Partida p = (Partida) session.getAttribute("partida");
+
+       if (p == null){
+           p = new Partida(new Jugador(nombreA,t1),new Jugador(nombreB,t2));
+           session.setAttribute("partida", p);
+       }
+        
+     
+        session.setAttribute("rand", new String("asdas"));
+
+    %>
         
         <h1 id='titulo' name='titulo'>Tablero</h1>       
         <div class='contenedor-principal d-flex'>
@@ -35,7 +49,7 @@
                         <div class="card-header text-center">Usuario A</div>
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-uno"><%= nombreA %></h5>
-                                    <p class="card-text"><strong>Equipo:</strong><%= t1 %></p>                                    
+                                    <p class="card-text"><strong>Equipo:</strong><%= t1 %></p>  
                             </div>
                     </div>
                     <br>

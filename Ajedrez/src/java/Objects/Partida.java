@@ -18,7 +18,7 @@ public class Partida {
         this.jugador1 = j1;
         this.jugador2 = j2;
     }
-      
+       
     public Tablero getTablero(){
         return t;
     }

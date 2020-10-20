@@ -45,10 +45,15 @@ public class ServletTablero extends HttpServlet {
             out.println("<title>Servlet ServletTablero</title>");  
             out.println("</head>");                                                     
             
+            HttpSession ses = request.getSession();
+            
+           out.println(ses.getAttribute("rand"));
+           Partida p = (Partida)ses.getAttribute("partida");
+            
             //nombres usuarios
             String nombre1 = request.getParameter("nombre1html");
             
-            String nombre2 = request.getParameter("nombre2html"); 
+            String nombre2 = request.getParameter("nombre2html");
             
             //equipos
             String t1 = request.getParameter("dato1");
@@ -58,7 +63,7 @@ public class ServletTablero extends HttpServlet {
             //creacion de jugadores
             Jugador jugadorUno = new Jugador(nombre1,t1); 
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);                
+            Jugador jugadorDos = new Jugador(nombre2,t2);
                             
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
@@ -71,7 +76,7 @@ public class ServletTablero extends HttpServlet {
                 Tablero.resetTablero();
             }
             int x,y;
-            Partida p = new Partida(jugadorUno,jugadorDos);
+           //Partida p = new Partida(jugadorUno,jugadorDos);
             
             out.print(p.getTablero().printBoard()); 
             
@@ -83,7 +88,9 @@ public class ServletTablero extends HttpServlet {
             
             out.println("Ronda: "+p.getRonda());
             out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
-        }
+            
+            p.sumarRonda();
+        }        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
