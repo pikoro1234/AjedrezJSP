@@ -19,6 +19,8 @@
         <title>Ajedrez</title>
     </head>
     
+    
+    
     <script type="text/javascript">
 	$(document).ready(function(){
             $("#span-home").addClass("left-span");
