@@ -5,7 +5,8 @@ public class Jugador {
     private String nombre;   
     
     private String equipo;
-
+    private Pieza cache;
+    
     public Jugador(String nombre, String equipo) {
         this.nombre = nombre;
         this.equipo = equipo;
@@ -28,4 +29,13 @@ public class Jugador {
     public void setEquipo(String equipo) {
         this.equipo = equipo;
     }
+
+    public void setCache(Pieza p){
+        this.cache = p;
+    }
+    
+    public Pieza getCache(){
+        return this.cache;
+    }
+
 }

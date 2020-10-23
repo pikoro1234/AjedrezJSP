@@ -51,7 +51,7 @@ public class ServletTablero extends HttpServlet {
            Partida p = (Partida)ses.getAttribute("partida");
             
             //nombres usuarios
-            String nombre1 = request.getParameter("nombre1html");
+/*            String nombre1 = request.getParameter("nombre1html");
             
             String nombre2 = request.getParameter("nombre2html");
             
@@ -63,7 +63,7 @@ public class ServletTablero extends HttpServlet {
             //creacion de jugadores
             Jugador jugadorUno = new Jugador(nombre1,t1); 
             
-            Jugador jugadorDos = new Jugador(nombre2,t2);
+            Jugador jugadorDos = new Jugador(nombre2,t2);*/
                             
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
@@ -80,17 +80,17 @@ public class ServletTablero extends HttpServlet {
             
             out.println("Ronda: "+p.getRonda());
             
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
-            
-            out.print(p.getTablero().printBoard()); 
-            
+            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);          
+           
             x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             
             y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
             
-            p.getTablero().getPieza(x, y).isPossibleMoving(x, y);                        
-            
-            p.sumarRonda();
+           out.print(p.getTablero().printBoard()); 
+
+           p.mover(x, y);
+           
+
         }        
     }
 
