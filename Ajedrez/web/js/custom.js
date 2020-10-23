@@ -16,6 +16,19 @@ $(document).ready(function(){
         $("#nombre1html").attr("value",acumulador);
      
         $("#nombre2html").attr("value",contador);    
-    });        
+    }); 
+    
+     //inicio enter para iniciar juego
+    $(".elementoPrueba").keypress(function(e) {
+        
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code === 13){
+           $("#formularioJuego").submit();
+        }
+    });
+    
+    
+    
+    
       
 });

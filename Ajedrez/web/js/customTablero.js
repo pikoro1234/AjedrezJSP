@@ -61,6 +61,7 @@ $(document).ready(function(){
        e.preventDefault();        
     });//fin nueva partida
     
-    
+   
+   
 });//fin document
 

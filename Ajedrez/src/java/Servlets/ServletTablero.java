@@ -78,16 +78,17 @@ public class ServletTablero extends HttpServlet {
             int x,y;
            //Partida p = new Partida(jugadorUno,jugadorDos);
             
+            out.println("Ronda: "+p.getRonda());
+            
+            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
+            
             out.print(p.getTablero().printBoard()); 
             
             x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             
             y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
             
-            p.getTablero().getPieza(x, y).isPossibleMoving(x, y);
-            
-            out.println("Ronda: "+p.getRonda());
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);
+            p.getTablero().getPieza(x, y).isPossibleMoving(x, y);                        
             
             p.sumarRonda();
         }        

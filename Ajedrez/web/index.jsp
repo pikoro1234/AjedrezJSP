@@ -58,7 +58,7 @@
         
         <!-- Modal  Inicio Juego -->
         <div class="modal fade" id="exampleModalJuego" tabindex="-1" aria-labelledby="exampleModalJuego" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog elementoPrueba">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Juego</h5>
@@ -82,7 +82,7 @@
                 </div>
               <div class="modal-footer justify-content-center">
                 <button type="button" class="bg-dark botonesJuegoInicio m-0" data-dismiss="modal">Cerrar</button>
-                <form action="JspTest.jsp" method="post">                    
+                <form id="formularioJuego" action="JspTest.jsp" method="post">                    
                     <input type="hidden" name="dato1" id="dato1">
                     <input type="hidden" name="nombre1html" id="nombre1html">
                     <input type="hidden" name="dato2" id="dato2">
