@@ -74,6 +74,7 @@ public class ServletTablero extends HttpServlet {
             
             if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
                 Tablero.resetTablero();
+                p.setRonda(1);
             }
             int x,y;
            //Partida p = new Partida(jugadorUno,jugadorDos);
@@ -86,9 +87,9 @@ public class ServletTablero extends HttpServlet {
             
             y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
             
-           out.print(p.getTablero().printBoard()); 
+            p.mover(x, y);
+            out.print(p.getTablero().printBoard()); 
 
-           p.mover(x, y);
            
 
         }        

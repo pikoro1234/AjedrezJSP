@@ -7,6 +7,7 @@ package Objects;
 
 public class Partida {
     
+    
     private int turno;
     private Tablero t;  
     private Jugador jugador1;
@@ -31,6 +32,10 @@ public class Partida {
         return this.turno;
     }
 
+    public void setRonda(int r){
+        this.turno = 1;
+    }
+    
     public Jugador getJugadorBlanco(){
         return this.jugador1;
     }
@@ -40,31 +45,54 @@ public class Partida {
     }
     
     public void mover(int x,int y){
-        if (turno %2 == 0){ // turno blanco
-            if (t.tablero[x][y] != null && t.tablero[x][y].getEquipo().equals("blanco")){
-                jugador1.setCache(t.tablero[x][y]);
-            }
-            if ((t.tablero[x][y].getEquipo().equals("negro") || 
-                    t.tablero[x][y] == null) && jugador1.getCache() != null){
+        
+        if (turno % 2 == 0){
+   
+          if (getTablero().tablero[x][y] != null 
+                    && getTablero().tablero[x][y].getEquipo().equals("blanco")){
+                    
+                jugador1.setCache(getTablero().tablero[x][y]);
+                jugador1.getCache().setX(x);
+                jugador1.getCache().setY(y);
+                return;
+            }            
+          
+          if (getTablero().tablero[x][y] == null || getTablero().tablero[x][y]
+                  .getEquipo().equals("negro")){
+              if (jugador1.getCache() != null){
                 
-                jugador1.getCache().isPossibleMoving(x, y);             
+                jugador1.getCache().isPossibleMoving(this, x, y);
                 jugador1.setCache(null);
                 sumarRonda();
-                
+              
+              }
+          }
+            
+        } else {
+            
+            if (getTablero().tablero[x][y] != null 
+                    && getTablero().tablero[x][y].getEquipo().equals("negro")){
+                    
+                jugador2.setCache(getTablero().tablero[x][y]);
+                jugador2.getCache().setX(x);
+                jugador2.getCache().setY(y);
+                return;
             }
-        } else { // turno negro
-            if (t.tablero[x][y] != null && t.tablero[x][y].getEquipo().equals("negro")){
-                jugador2.setCache(t.tablero[x][y]);
+            
+          if (getTablero().tablero[x][y] == null || 
+                  getTablero().tablero[x][y].getEquipo().equals("blanco")){
+                  
+              if (jugador2.getCache() != null){
+              
+              jugador2.getCache().isPossibleMoving(this, x, y);
+              jugador2.setCache(null);
+              sumarRonda();              
             }
-            if ((t.tablero[x][y].getEquipo().equals("blanco") || 
-                    t.tablero[x][y] == null) && jugador2.getCache() != null){
-                
-                jugador2.getCache().isPossibleMoving(x, y);
-                sumarRonda();
-                jugador2.setCache(null);
-                
-            }
+
+          }
+            
         }
+        
     }    
     
 }

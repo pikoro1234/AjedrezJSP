@@ -16,9 +16,18 @@ public class Peon extends Pieza {
 
 
     @Override
-    public void isPossibleMoving(int x,int y) {
-    
-        Tablero t = Tablero.get();
+    public void isPossibleMoving(Partida pa,int x,int y) {
+        
+        if (pa.getRonda() % 2 == 0 || pa.getRonda() == 0){
+            pa.getTablero().tablero[x][y] = pa.getJugadorBlanco().getCache();
+            pa.getTablero().tablero[pa.getJugadorBlanco().getCache().getX()][pa.getJugadorBlanco().getCache().getY()] = null;            
+        } else {
+            pa.getTablero().tablero[x][y] = pa.getJugadorNegro().getCache();
+            pa.getTablero().tablero[pa.getJugadorNegro().getCache().getX()][pa.getJugadorNegro().getCache().getY()] = null;            
+        }
+
+        
+       /* Tablero t = Tablero.get();
         if (t.tablero[x][y] != null){
             Peon p = (Peon)t.tablero[x][y];
             if (t.getPieza(x, y).getEquipo().equalsIgnoreCase("blanco")){
@@ -39,10 +48,7 @@ public class Peon extends Pieza {
                     Tablero.get().tablero[x][y] = null;
                     Tablero.get().tablero[x-1][y] = p;                      
                 }
-            }
-
+            }*/
         }
-        
     }
-    
-}
+//}

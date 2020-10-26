@@ -11,6 +11,8 @@ public abstract class Pieza {
     private String equipo;
     private String nombre;
     private String img;
+    private int x;
+    private int y;
     
     public Pieza(String equipo,String nombre,String img){
        this.equipo = equipo;
@@ -22,7 +24,7 @@ public abstract class Pieza {
         return this.nombre;
     }
     
-    public abstract void isPossibleMoving(int x,int y);
+    public abstract void isPossibleMoving(Partida p,int x,int y);
    
     public String getImage(){
         return img;
@@ -35,6 +37,23 @@ public abstract class Pieza {
     public Pieza getPieza(){
         return this;
     }
+    
+    public int getX(){
+        return this.x;
+    }
+    
+    public int getY(){
+        return this.y;
+    }
+    
+    public void setX(int x){
+        this.x = x;
+    }
+    
+    public void setY(int y){
+        this.y = y;
+    }
+    
     
     public final void setImage(String path){
         if (equipo.equalsIgnoreCase("Blanco") && !(equipo.isEmpty())){

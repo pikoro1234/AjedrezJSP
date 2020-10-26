@@ -16,7 +16,7 @@ public class Rey extends Pieza{
     }
 
     @Override
-    public void isPossibleMoving(int x, int y) {
+    public void isPossibleMoving(Partida p,int x, int y) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
