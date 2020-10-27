@@ -16,7 +16,7 @@ public class Peon extends Pieza {
 
 
     @Override
-    public void isPossibleMoving(Tablero t,Jugador j,int x,int y) {
+    public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {
         
 
         
@@ -42,6 +42,7 @@ public class Peon extends Pieza {
                     Tablero.get().tablero[x-1][y] = p;                      
                 }
             }*/
+            return false;
         }
     }
 //}

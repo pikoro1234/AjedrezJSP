@@ -16,8 +16,8 @@ public class Reina extends Pieza{
     }
 
     @Override
-    public void isPossibleMoving(Tablero t,Jugador j,int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean isPossibleMoving(Tablero t,Jugador j,int x, int y) {
+        return false;
     }
     
 }

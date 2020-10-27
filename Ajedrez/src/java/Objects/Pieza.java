@@ -24,7 +24,7 @@ public abstract class Pieza {
         return this.nombre;
     }
     
-    public abstract void isPossibleMoving(Tablero t,Jugador p,int x,int y);
+    public abstract boolean isPossibleMoving(Tablero t,Jugador p,int x,int y);
    
     public String getImage(){
         return img;
