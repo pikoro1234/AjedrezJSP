@@ -7,6 +7,8 @@ public class Jugador {
     private String equipo;
     private Pieza cache;
     
+    
+    
     public Jugador(String nombre, String equipo) {
         this.nombre = nombre;
         this.equipo = equipo;

@@ -14,7 +14,15 @@ public class Torre extends Pieza {
     }
     
     @Override
-    public void isPossibleMoving(Partida p,int x,int y) {
+    public void isPossibleMoving(Tablero t,Jugador j,int x,int y) {
+        
+
+        
+    }
+    
+    public boolean isValidMovement(int pX,int pY,int x,int y){
+        
+        return pX == x || pY == y ? true : false;
         
     }
 

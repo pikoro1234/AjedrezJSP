@@ -7,7 +7,6 @@ package Objects;
 
 public class Partida {
     
-    
     private int turno;
     private Tablero t;  
     private Jugador jugador1;
@@ -61,7 +60,7 @@ public class Partida {
                   .getEquipo().equals("negro")){
               if (jugador1.getCache() != null){
                 
-                jugador1.getCache().isPossibleMoving(this, x, y);
+                jugador1.getCache().isPossibleMoving(getTablero(),getJugadorBlanco(), x, y);
                 jugador1.setCache(null);
                 sumarRonda();
               
@@ -76,6 +75,7 @@ public class Partida {
                 jugador2.setCache(getTablero().tablero[x][y]);
                 jugador2.getCache().setX(x);
                 jugador2.getCache().setY(y);
+                
                 return;
             }
             
@@ -84,7 +84,7 @@ public class Partida {
                   
               if (jugador2.getCache() != null){
               
-              jugador2.getCache().isPossibleMoving(this, x, y);
+              jugador2.getCache().isPossibleMoving(getTablero(),getJugadorNegro(), x, y);
               jugador2.setCache(null);
               sumarRonda();              
             }

@@ -11,11 +11,22 @@ public class Caballo extends Pieza {
         super(equipo,"C","img/c.png");
     }
 
-    
+        
     
     @Override
-    public void isPossibleMoving(Partida p,int x,int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void isPossibleMoving(Tablero t,Jugador j,int x,int y) {
+
+        if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
+            
+            t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
+            t.tablero[x][y] = j.getCache();
+            
+        }
+
+    }
+    
+    public boolean isValidMovement(int pX,int pY,int x,int y){
+        return (pX - x)*(pX - x)+(pY - y)*(pY - y) == 5;
     }
     
 }
