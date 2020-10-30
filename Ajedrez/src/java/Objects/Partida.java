@@ -5,6 +5,8 @@
  */
 package Objects;
 
+import java.util.ArrayList;
+
 public class Partida {
     
     private int turno;
@@ -53,6 +55,8 @@ public class Partida {
                 jugador1.setCache(getTablero().tablero[x][y]);
                 jugador1.getCache().setX(x);
                 jugador1.getCache().setY(y);
+                
+                //TODO: Pintar posibles movimientos en el tablero
                 return;
             }            
           
