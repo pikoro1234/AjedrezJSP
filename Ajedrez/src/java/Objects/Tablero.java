@@ -62,7 +62,7 @@ public class Tablero {
         for (int i=0;i<tablero[6].length;i++){
             tablero[6][i] = new Peon("negro");
         }
-        
+         
     }
     
     public String printBoard(){

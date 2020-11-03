@@ -1,12 +1,9 @@
 package Servlets;
 
-import Objects.Jugador;
 import Objects.Partida;
-import Objects.Peon;
 import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,24 +44,8 @@ public class ServletTablero extends HttpServlet {
             
             HttpSession ses = request.getSession();
             
-           out.println(ses.getAttribute("rand"));
-           Partida p = (Partida)ses.getAttribute("partida");
-            
-            //nombres usuarios
-/*            String nombre1 = request.getParameter("nombre1html");
-            
-            String nombre2 = request.getParameter("nombre2html");
-            
-            //equipos
-            String t1 = request.getParameter("dato1");
-            
-            String t2 = request.getParameter("dato2"); 
-            
-            //creacion de jugadores
-            Jugador jugadorUno = new Jugador(nombre1,t1); 
-            
-            Jugador jugadorDos = new Jugador(nombre2,t2);*/
-                            
+            Partida p = (Partida)ses.getAttribute("partida");
+                                    
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
             
@@ -72,13 +53,15 @@ public class ServletTablero extends HttpServlet {
             
             boolean reset = Boolean.valueOf(request.getParameter("valorPrueba"));
             
+            
             if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
                 Tablero.resetTablero();
-                p.setRonda(1);
+                ses.setAttribute("partida", null);
+                return;
             }
+
             int x,y;
-           //Partida p = new Partida(jugadorUno,jugadorDos);
-            
+                       
             out.println("Ronda: "+p.getRonda());
             
             out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);          
@@ -88,10 +71,8 @@ public class ServletTablero extends HttpServlet {
             y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
             
             p.mover(x, y);
-            out.print(p.getTablero().printBoard()); 
-
-           
-
+            out.print(p.getTablero().printBoard());
+            
         }        
     }
 
