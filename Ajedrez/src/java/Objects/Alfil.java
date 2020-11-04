@@ -63,6 +63,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
                 if(t.tablero[xaux][yaux] != null){
                     return false;
                 }
+                
                 xaux++;
                 yaux++;                
             }
