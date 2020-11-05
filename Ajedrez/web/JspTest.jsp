@@ -4,6 +4,7 @@
     Author     : jorge
 --%>
 
+<%@page import="Objects.Tablero"%>
 <%@page import="Objects.Pieza"%>
 <%@page import="Objects.Jugador"%>
 <%@page import="Objects.Partida"%>
@@ -42,7 +43,9 @@
         session.setAttribute("rand", new String("asdas"));
 
     %>
-        
+    
+    <%="longitud de array es: "+Tablero.get().tablero.length%>
+           
         <h1 id='titulo' name='titulo'>Tablero</h1>       
         <div class='contenedor-principal d-flex'>
             <div class="contenido-left">
@@ -114,25 +117,25 @@
                 <div class='tablero card-java-tablero'>
                     <table>
                         <thead></thead>
-                        <tbody>
-                            <tr>
+                        <tbody>                         
                                 <% String var = "";
-                                for (int x=0; x < tablero.length; x++){
-                                    for (int y=0; y < tablero[x].length; y++){
-                                        if (tablero[x][y] != null){
+                                for (int x=0; x < Tablero.get().tablero.length; x++){
+                                    var +="<tr>";
+                                    for (int y=0; y < Tablero.get().tablero[x].length; y++){
+                                        if (Tablero.get().tablero[x][y] != null){
                                             if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
-                                            var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                                            var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+Tablero.get().tablero[x][y].getNombre()+"'>"+
                                                     "<form action='Tablero' class='formularioDatos'>"
-                                                    +"<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                                                    +"<img class='imagen-ficha' src='"+Tablero.get().tablero[x][y].getImage()+"' width='50' heigth='50'>"+
                                                     "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
-                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+Tablero.get().tablero[x][y].getNombre()+"'>"                           
                                                     + "<input type='button' class='btnEnviar' value='send'></form></td>";                         
                                             } else {
-                                            var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                                            var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+Tablero.get().tablero[x][y].getNombre()+"'>"+
                                                     "<form action='Tablero' class='formularioDatos'>"+
-                                                "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                                                "<img class='imagen-ficha' src='"+Tablero.get().tablero[x][y].getImage()+"' width='50' heigth='50'>"+
                                                      "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
-                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+Tablero.get().tablero[x][y].getNombre()+"'>"                           
                                                     + "<input type='button' class='btnEnviar' value='Send'></form></td>";                         
                                             }
 
@@ -145,10 +148,10 @@
                                             }
 
                                         }
-                                     }  
-                                }
-                                %>
-                            </tr>
+                                     } 
+                                    var +="</tr>";
+                                }                                
+                                out.println(var);%>
                         </tbody>
                     </table>
                 </div><!--fin contenedor tablero-->                
