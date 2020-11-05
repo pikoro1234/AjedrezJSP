@@ -17,7 +17,7 @@ public class Tablero {
         createBoard();
     
     }
-    
+      
     public static Tablero get(){
         if (instance == null){
             instance = new Tablero();
@@ -31,6 +31,10 @@ public class Tablero {
     
     public Pieza getPieza(int x,int y){
         return tablero[x][y];
+    }
+    
+    public Pieza[][] getTablero(){
+        return this.tablero;
     }
     
     public void createBoard(){

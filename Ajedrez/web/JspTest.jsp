@@ -4,6 +4,7 @@
     Author     : jorge
 --%>
 
+<%@page import="Objects.Pieza"%>
 <%@page import="Objects.Jugador"%>
 <%@page import="Objects.Partida"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,13 +31,14 @@
         String nombreB = request.getParameter("nombre2html");                 
 
         Partida p = (Partida) session.getAttribute("partida");
+        Pieza[][] tablero = null;
 
+        
        if (p == null){
            p = new Partida(new Jugador(nombreA,t1),new Jugador(nombreB,t2));
            session.setAttribute("partida", p);
-       }
-        
-     
+           tablero = p.getTablero().tablero;
+       }        
         session.setAttribute("rand", new String("asdas"));
 
     %>
@@ -109,8 +111,46 @@
                 </div><!--fin user center button-->
             </div>
             <div class="contenido-rigth">
-                <div class='tablero card-java-tablero'>                
-                    <jsp:include page="/Test" />                   
+                <div class='tablero card-java-tablero'>
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <% String var = "";
+                                for (int x=0; x < tablero.length; x++){
+                                    for (int y=0; y < tablero[x].length; y++){
+                                        if (tablero[x][y] != null){
+                                            if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
+                                            var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                                                    "<form action='Tablero' class='formularioDatos'>"
+                                                    +"<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                                                    "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
+                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                                                    + "<input type='button' class='btnEnviar' value='send'></form></td>";                         
+                                            } else {
+                                            var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
+                                                    "<form action='Tablero' class='formularioDatos'>"+
+                                                "<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
+                                                     "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
+                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"                           
+                                                    + "<input type='button' class='btnEnviar' value='Send'></form></td>";                         
+                                            }
+
+                                        } else {
+                                            if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
+                                                var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+"></td>";                    
+                                            } else {
+                                                var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+"></td>";
+
+                                            }
+
+                                        }
+                                     }  
+                                }
+                                %>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div><!--fin contenedor tablero-->                
             </div>                                                                 
         </div><!--fin contenedor-principal-->                                                

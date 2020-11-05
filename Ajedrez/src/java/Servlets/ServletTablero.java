@@ -68,11 +68,11 @@ public class ServletTablero extends HttpServlet {
            
             x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             
-            y = Integer.parseInt(Character.toString(coordenada.charAt(1)));
+            y = Integer.parseInt(Character.toString(coordenada.charAt(1))); 
             
             p.mover(x, y);
-            out.print(p.getTablero().printBoard());
-            
+           // out.print(p.getTablero().printBoard());
+            p.getTablero().getTablero();
         }        
     }
 
