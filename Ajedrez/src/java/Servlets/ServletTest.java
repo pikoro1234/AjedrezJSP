@@ -35,9 +35,9 @@ public class ServletTest extends HttpServlet {
         response.setContentType("text/plain");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Tablero t = Tablero.get();
+            //Tablero t = Tablero.get();
             
-            out.print(t.printBoard());
+           // out.print(t.printBoard());
             
         }
     }

@@ -56,7 +56,8 @@ public class ServletTablero extends HttpServlet {
             
             if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
                 Tablero.resetTablero();
-                ses.setAttribute("partida", null);
+                //out.print(p.getTablero().printBoard());
+                //ses.setAttribute("partida", null);
                 return;
             }
 
@@ -71,7 +72,9 @@ public class ServletTablero extends HttpServlet {
             y = Integer.parseInt(Character.toString(coordenada.charAt(1))); 
             
             p.mover(x, y);
+            
             out.print(p.getTablero().printBoard());
+            
             p.getTablero().getTablero();
         }        
     }

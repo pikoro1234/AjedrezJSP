@@ -8,6 +8,8 @@ $(document).ready(function(){
     
     $(".filaColumna").click(function(e){
         
+        alert("hola mundo");
+        
         coordenadasJs = $(this).attr("data");
         
         objetoNombreJs = $(this).attr("nombre");               
