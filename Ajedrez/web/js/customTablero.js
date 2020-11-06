@@ -1,5 +1,37 @@
 $(document).ready(function(){ 
     
+    var arrayBlancas = new Array();
+    
+    var arrayNegras = new Array();
+    
+    var tablaTdBlancas = document.querySelector(".reemplazo-js-blancas");
+    
+    tablaTdBlancas.innerHTML = "";
+    
+    var tablaTdNegras = document.querySelector(".reemplazo-js-negras");
+    
+    tablaTdNegras.innerHTML = "";
+        
+    var imagenMuertosNegras = document.getElementsByClassName("valorMuertoB"),
+    namesValues = [].map.call(imagenMuertosNegras,function(dataInput){
+        arrayBlancas.push(dataInput.value);
+    });
+    
+    arrayBlancas.forEach(function(inputAll){
+        
+        tablaTdBlancas.innerHTML += "<td><img src='"+inputAll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";
+    });
+    
+    var imagenMuertosBlancas = document.getElementsByClassName("valorMuertoA"),
+    namesValues = [].map.call(imagenMuertosBlancas,function(data){
+       arrayNegras.push(data.value); 
+    });
+    
+    arrayNegras.forEach(function(inputOll){
+        tablaTdNegras.innerHTML += "<td><img src='"+inputOll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";     
+    });
+        
+    
     //e.preventDefault(); return false; quitar evento de recarga formulario 
     
     var coordenadasJs ="";
@@ -8,7 +40,7 @@ $(document).ready(function(){
     
     $(".filaColumna").click(function(e){
         
-        alert("hola mundo");
+        //alert("hola mundo");
         
         coordenadasJs = $(this).attr("data");
         

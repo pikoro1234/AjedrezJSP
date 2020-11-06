@@ -1,14 +1,14 @@
 package Objects;
 
+import java.util.ArrayList;
+
 public class Jugador {
     
     private String nombre;   
-    
     private String equipo;
     private Pieza cache;
-    
-    
-    
+    private ArrayList<Pieza> cementerio = new ArrayList<Pieza>();
+       
     public Jugador(String nombre, String equipo) {
         this.nombre = nombre;
         this.equipo = equipo;
@@ -38,6 +38,14 @@ public class Jugador {
     
     public Pieza getCache(){
         return this.cache;
+    }
+    
+    public void agregar(Pieza pieza){
+        cementerio.add(pieza);
+    }
+    
+    public ArrayList<Pieza> getCementerio() {
+        return cementerio;
     }
 
 }
