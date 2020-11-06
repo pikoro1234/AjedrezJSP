@@ -1,9 +1,11 @@
 package Servlets;
 
 import Objects.Partida;
+import Objects.Pieza;
 import Objects.Tablero;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +67,23 @@ public class ServletTablero extends HttpServlet {
                        
             out.println("Ronda: "+p.getRonda());
             
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);          
+            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);  
+            
+            
+            ArrayList<Pieza> listaCementerioNegros = p.getJugadorBlanco().getCementerio();
+            
+            ArrayList<Pieza> listaCementerioBlancos = p.getJugadorNegro().getCementerio();
+            
+            for(Pieza piezaA: listaCementerioNegros){
+                 out.println("");
+                 out.println("<input type='hidden' class='valorMuertoB' name='valorMuertoB[]' value='"+piezaA.getImage()+"'>");
+                 out.println("");
+            }
+            for(Pieza piezaB: listaCementerioBlancos){
+                out.println("");
+                out.println("<input type='hidden' class='valorMuertoA' name='valorMuertoA[]' value='"+piezaB.getImage()+"'>");
+                out.println("");
+            } 
            
             x = Integer.parseInt(Character.toString(coordenada.charAt(0)));
             

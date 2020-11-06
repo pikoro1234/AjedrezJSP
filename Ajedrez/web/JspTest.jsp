@@ -5,6 +5,8 @@
 --%>
 
 <%@page import="Objects.Tablero"%>
+<%@page import="Objects.Peon"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Objects.Pieza"%>
 <%@page import="Objects.Jugador"%>
 <%@page import="Objects.Partida"%>
@@ -66,11 +68,7 @@
                                     <thead>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                          <td>00</td>
-                                          <td>00</td>
-                                          <td>00</td>
-                                          <td>00</td>
+                                        <tr class="reemplazo-js-blancas">
                                         </tr>
                                      </tbody>
                                 </table>                                       
@@ -94,11 +92,8 @@
                                     <thead>   
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <td>00</td>
-                                        <td>00</td>
-                                        <td>00</td>
-                                        <td>00</td>
+                                      <tr class="reemplazo-js-negras">
+                                       
                                       </tr>
                                     </tbody>
                                 </table> 
@@ -117,41 +112,8 @@
                 <div class='tablero card-java-tablero'>
                     <table>
                         <thead></thead>
-                        <tbody>                         
-                                <% String var = "";
-                                for (int x=0; x < Tablero.get().tablero.length; x++){
-                                    var +="<tr>";
-                                    for (int y=0; y < Tablero.get().tablero[x].length; y++){
-                                        if (Tablero.get().tablero[x][y] != null){
-                                            if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
-                                            var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+Tablero.get().tablero[x][y].getNombre()+"'>"+
-                                                    "<form action='Tablero' class='formularioDatos'>"
-                                                    +"<img class='imagen-ficha' src='"+Tablero.get().tablero[x][y].getImage()+"' width='50' heigth='50'>"+
-                                                    "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
-                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+Tablero.get().tablero[x][y].getNombre()+"'>"                           
-                                                    + "<input type='button' class='btnEnviar' value='send'></form></td>";                         
-                                            } else {
-                                            var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+" nombre='"+Tablero.get().tablero[x][y].getNombre()+"'>"+
-                                                    "<form action='Tablero' class='formularioDatos'>"+
-                                                "<img class='imagen-ficha' src='"+Tablero.get().tablero[x][y].getImage()+"' width='50' heigth='50'>"+
-                                                     "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
-                                                    + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+Tablero.get().tablero[x][y].getNombre()+"'>"                           
-                                                    + "<input type='button' class='btnEnviar' value='Send'></form></td>";                         
-                                            }
-
-                                        } else {
-                                            if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
-                                                var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+"></td>";                    
-                                            } else {
-                                                var += "<td class='filaColumna nones' width='50' heigth='80' data="+x+y+"></td>";
-
-                                            }
-
-                                        }
-                                     } 
-                                    var +="</tr>";
-                                }                                
-                                out.println(var);%>
+                        <tbody>                                                                                         
+                                <% out.println(Tablero.get().printBoard());%>
                         </tbody>
                     </table>
                 </div><!--fin contenedor tablero-->                
