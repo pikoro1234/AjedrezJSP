@@ -68,8 +68,7 @@
                                     <thead>
                                     </thead>
                                     <tbody>
-                                        <tr class="reemplazo-js-blancas">
-                                        </tr>
+                                        <tr class="reemplazo-js-blancas"></tr>
                                      </tbody>
                                 </table>                                       
                             </div>
@@ -92,9 +91,7 @@
                                     <thead>   
                                     </thead>
                                     <tbody>
-                                      <tr class="reemplazo-js-negras">
-                                       
-                                      </tr>
+                                      <tr class="reemplazo-js-negras"></tr>
                                     </tbody>
                                 </table> 
                             </div>
