@@ -23,8 +23,6 @@ public class Torre extends Pieza implements PiezaBloqueable {
             valid = isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y);
             
             if (valid){
-                t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
-                t.tablero[x][y] = j.getCache();
                 return true;
             }
             

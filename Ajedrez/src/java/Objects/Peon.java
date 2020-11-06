@@ -24,20 +24,14 @@ public class Peon extends Pieza implements PiezaBloqueable {
             if (p.getY() + 1 > 7 || p.getY() - 1 < 0){return false;}
             
             if ((t.tablero[xaux = p.getX() + modX][yaux = p.getY() + 1] != null) && (xaux == x && yaux == y)){
-                t.tablero[p.getX()][p.getY()] = null;
-                t.tablero[xaux][yaux] = j.getCache();
                 p.moved = true;
                 return true;
             } else if ((t.tablero[xaux = p.getX() + modX][yaux = p.getY() - 1] != null) && (xaux == x && yaux == y)){
-                t.tablero[p.getX()][p.getY()] = null;
-                t.tablero[xaux][yaux] = j.getCache();
                 p.moved = true;
                 return true;
             }
                         
             if (!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
-                t.tablero[p.getX()][p.getY()] = null;
-                t.tablero[x][y] = j.getCache();
                 return true;
             }
             

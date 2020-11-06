@@ -55,7 +55,7 @@ public class Partida {
                 jugador1.setCache(getTablero().tablero[x][y]);
                 jugador1.getCache().setX(x);
                 jugador1.getCache().setY(y);
-                
+                this.getPossibleMoves(getJugadorBlanco(), getTablero());
                 //TODO: Pintar posibles movimientos en el tablero
                 return;
             }            
@@ -65,6 +65,7 @@ public class Partida {
               if (jugador1.getCache() != null){
                 
                 if (jugador1.getCache().isPossibleMoving(getTablero(),getJugadorBlanco(), x, y)){
+                    move(getJugadorBlanco(),x,y);                    
                     jugador1.setCache(null);
                     sumarRonda();
                 }
@@ -80,7 +81,7 @@ public class Partida {
                 jugador2.setCache(getTablero().tablero[x][y]);
                 jugador2.getCache().setX(x);
                 jugador2.getCache().setY(y);
-                
+                this.getPossibleMoves(getJugadorNegro(), getTablero());
                 return;
             }
             
@@ -90,6 +91,7 @@ public class Partida {
               if (jugador2.getCache() != null){
                 
                 if (jugador2.getCache().isPossibleMoving(getTablero(),getJugadorNegro(), x, y)){
+                    move(getJugadorNegro(),x,y);
                     jugador2.setCache(null);
                     sumarRonda();                     
                 }
@@ -100,6 +102,29 @@ public class Partida {
             
         }
         
-    }    
+    }
+
+    public ArrayList<Integer> getPossibleMoves(Jugador j,Tablero t){
+        ArrayList<Integer> valid = new ArrayList();
+        Pieza p = j.getCache();
+
+        for(int x = 0;x<t.tablero.length;x++){
+            for (int y = 0;y<t.tablero[x].length;y++){
+               if(p.isPossibleMoving(t, j, x, y)){
+                   valid.add(Integer.parseInt(x+""+y));
+               }
+            }
+
+        }
+
+        return valid;
+    }
+    
+    public void move(Jugador j,int x,int y){
+        getTablero().tablero[j.getCache().getX()][j.getCache().getY()] = null;
+        getTablero().tablero[x][y] = j.getCache();
+    }
+
+    
     
 }

@@ -17,33 +17,13 @@ public class Caballo extends Pieza {
         if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
                                              
             if (t.tablero[x][y] != null) {
-                if (t.tablero[x][y].getEquipo().equals("blanco") && j.getEquipo().equals("negro")) {
                     
-                    j.agregar(t.tablero[x][y]);                                                            
-                    
-                    t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
-                    
-                    t.tablero[x][y] = j.getCache();
-                
+                j.agregar(t.tablero[x][y]);            
                 return true;
-                }
-            
-                if(t.tablero[x][y].getEquipo().equals("negro") && j.getEquipo().equals("blanco")){
-                    
-                    j.agregar(t.tablero[x][y]);
 
-                    t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
 
-                    t.tablero[x][y] = j.getCache();
-                    
-                    return true;
-
-                }
             }
-   
-            t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
 
-            t.tablero[x][y] = j.getCache();
             return true;
         }
         return false;

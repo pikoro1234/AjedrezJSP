@@ -18,8 +18,6 @@ public class Alfil extends Pieza implements PiezaBloqueable {
         
         if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
             if(!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
-                t.tablero[j.getCache().getX()][j.getCache().getY()] = null;
-                t.tablero[x][y] = j.getCache();
                 return true;
             }
         }
