@@ -44,7 +44,7 @@ $(document).ready(function(){
         
         coordenadasJs = $(this).attr("data");
         
-        objetoNombreJs = $(this).attr("nombre");               
+        objetoNombreJs = $(this).attr("nombre");
         
         $.ajax({
             type:'POST',

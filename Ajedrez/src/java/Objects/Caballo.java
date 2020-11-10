@@ -18,7 +18,6 @@ public class Caballo extends Pieza {
                                              
             if (t.tablero[x][y] != null) {
                     
-                j.agregar(t.tablero[x][y]);            
                 return true;
 
 

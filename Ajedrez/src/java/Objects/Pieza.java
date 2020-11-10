@@ -11,12 +11,14 @@ public abstract class Pieza {
     private String equipo;
     private String nombre;
     private String img;
+    private boolean eatable;
     private int x;
     private int y;
     
     public Pieza(String equipo,String nombre,String img){
        this.equipo = equipo;
        this.nombre = nombre;
+       this.eatable = false;
        setImage(img);
     }
     
@@ -52,6 +54,10 @@ public abstract class Pieza {
     
     public void setY(int y){
         this.y = y;
+    }
+    
+    public boolean isEatable(){
+        return this.eatable;
     }
     
     

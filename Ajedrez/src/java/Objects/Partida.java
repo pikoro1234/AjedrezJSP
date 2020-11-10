@@ -50,18 +50,23 @@ public class Partida {
         if (turno % 2 == 0){
    
           if (getTablero().tablero[x][y] != null 
-                    && getTablero().tablero[x][y].getEquipo().equals("blanco")){
-                    
+                    && getTablero().tablero[x][y].getEquipo().equals("blanco")) {
+                
+                if (getJugadorBlanco().getCache() != getTablero().tablero[x][y]){
+                    cleanPossibleMoves();
+                }
                 jugador1.setCache(getTablero().tablero[x][y]);
                 jugador1.getCache().setX(x);
                 jugador1.getCache().setY(y);
                 this.getPossibleMoves(getJugadorBlanco(), getTablero());
+                
                 //TODO: Pintar posibles movimientos en el tablero
                 return;
             }            
           
+          
           if (getTablero().tablero[x][y] == null || getTablero().tablero[x][y]
-                  .getEquipo().equals("negro")){
+                  .getEquipo().equals("negro") || getTablero().tablero[x][y] instanceof Fantasma){
               if (jugador1.getCache() != null){
                 
                 if (jugador1.getCache().isPossibleMoving(getTablero(),getJugadorBlanco(), x, y)){
@@ -77,7 +82,11 @@ public class Partida {
             
             if (getTablero().tablero[x][y] != null 
                     && getTablero().tablero[x][y].getEquipo().equals("negro")){
-                    
+
+                if (getJugadorNegro().getCache() != getTablero().tablero[x][y]){
+                    cleanPossibleMoves();
+                }
+                
                 jugador2.setCache(getTablero().tablero[x][y]);
                 jugador2.getCache().setX(x);
                 jugador2.getCache().setY(y);
@@ -86,7 +95,7 @@ public class Partida {
             }
             
           if (getTablero().tablero[x][y] == null || 
-                  getTablero().tablero[x][y].getEquipo().equals("blanco")){
+                  getTablero().tablero[x][y].getEquipo().equals("blanco") || getTablero().tablero[x][y] instanceof Fantasma){
                   
               if (jugador2.getCache() != null){
                 
@@ -103,15 +112,26 @@ public class Partida {
         }
         
     }
-
+    
+    public void cleanPossibleMoves(){
+        for(int x = 0;x<getTablero().tablero.length;x++){
+            for(int y = 0;y<getTablero().tablero[x].length;y++){
+                if (getTablero().tablero[x][y] instanceof Fantasma ){
+                    getTablero().tablero[x][y] = null;
+                }
+            }
+        }
+    }
+    
     public ArrayList<Integer> getPossibleMoves(Jugador j,Tablero t){
         ArrayList<Integer> valid = new ArrayList();
         Pieza p = j.getCache();
 
         for(int x = 0;x<t.tablero.length;x++){
             for (int y = 0;y<t.tablero[x].length;y++){
-               if(p.isPossibleMoving(t, j, x, y)){
-                   valid.add(Integer.parseInt(x+""+y));
+               if(p.isPossibleMoving(t, j, x, y) && t.tablero[x][y] == null){
+                    t.tablero[x][y] = new Fantasma();
+                    //valid.add(Integer.parseInt(x+""+y));
                }
             }
 
@@ -123,6 +143,7 @@ public class Partida {
     public void move(Jugador j,int x,int y){
         getTablero().tablero[j.getCache().getX()][j.getCache().getY()] = null;
         getTablero().tablero[x][y] = j.getCache();
+        cleanPossibleMoves();
     }
 
     

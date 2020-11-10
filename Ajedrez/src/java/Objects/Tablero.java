@@ -79,7 +79,13 @@ public class Tablero {
         for (int x=0; x < tablero.length; x++){
             for (int y=0; y < tablero[x].length; y++){
                 if (tablero[x][y] != null){
-                    if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
+                    if (tablero[x][y] instanceof Fantasma){
+                        var += "<td class='filaColumna fantasma' width='50' height='80' data="+x+y+" nombre='"+tablero[x][y].getEquipo()+"'>"
+                                + "<form action='Tablero' class='formularioDatos'>"
+                                + "<input type='hidden' name='envioCoordenada' class='envioCoordenada' value='"+x+y+"'>"
+                                + "<input type='hidden' name='envioNombre' class='envioNombre' value='"+tablero[x][y].getNombre()+"'>"
+                                + "<input type='button' class='btnEnviar' value='send'></form></td>";
+                    }else if ((x%2==0 && y%2!=0 || x%2!=0 && y%2==0)){
                     var += "<td class='filaColumna pares' width='50' heigth='80' data="+x+y+" nombre='"+tablero[x][y].getNombre()+"'>"+
                             "<form action='Tablero' class='formularioDatos'>"
                             +"<img class='imagen-ficha' src='"+tablero[x][y].getImage()+"' width='50' heigth='50'>"+
