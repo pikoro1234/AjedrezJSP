@@ -114,14 +114,20 @@ public class Partida {
     }
     
     public void cleanPossibleMoves(){
+        
+        
         for(int x = 0;x<getTablero().tablero.length;x++){
             for(int y = 0;y<getTablero().tablero[x].length;y++){
-                if (getTablero().tablero[x][y] instanceof Fantasma ){
+                if (getTablero().tablero[x][y] != null && !(getTablero().tablero[x][y] instanceof Fantasma) && getTablero().tablero[x][y].isEatable()){
+                    getTablero().tablero[x][y].setEatable(false);
+                } else if (getTablero().tablero[x][y] instanceof Fantasma ){
                     getTablero().tablero[x][y] = null;
                 }
+
             }
         }
     }
+    
     
     public ArrayList<Integer> getPossibleMoves(Jugador j,Tablero t){
         ArrayList<Integer> valid = new ArrayList();
@@ -129,9 +135,13 @@ public class Partida {
 
         for(int x = 0;x<t.tablero.length;x++){
             for (int y = 0;y<t.tablero[x].length;y++){
+               if(p.isPossibleMoving(t, j, x, y) && t.tablero[x][y] instanceof Pieza){
+                   if (!(t.tablero[x][y].getEquipo().equals(j.getEquipo()))){
+                       t.tablero[x][y].setEatable(true);
+                   }
+               }
                if(p.isPossibleMoving(t, j, x, y) && t.tablero[x][y] == null){
                     t.tablero[x][y] = new Fantasma();
-                    //valid.add(Integer.parseInt(x+""+y));
                }
             }
 

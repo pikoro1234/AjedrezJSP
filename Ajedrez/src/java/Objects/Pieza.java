@@ -60,6 +60,10 @@ public abstract class Pieza {
         return this.eatable;
     }
     
+    public void setEatable(boolean eatable){
+        this.eatable = eatable;
+    }
+    
     
     public final void setImage(String path){
         if (equipo.equalsIgnoreCase("Blanco") && !(equipo.isEmpty())){

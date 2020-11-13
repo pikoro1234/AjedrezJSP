@@ -17,20 +17,12 @@ public class Peon extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {
             
-            int modX = j.getEquipo().equals("blanco") ? 1 : -1;
+            int modX = j.getCache().getEquipo().equals("blanco") ? 1 : -1;
             Peon p = (Peon) j.getCache().getPieza();
-            int xaux,yaux;
+            int xaux,yaux;          
             
-            if (p.getY() + 1 > 7 || p.getY() - 1 < 0){return false;}
             
-            if ((t.tablero[xaux = p.getX() + modX][yaux = p.getY() + 1] != null) && (xaux == x && yaux == y)){
-                p.moved = true;
-                return true;
-            } else if ((t.tablero[xaux = p.getX() + modX][yaux = p.getY() - 1] != null) && (xaux == x && yaux == y)){
-                p.moved = true;
-                return true;
-            }
-                        
+            
             if (!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
                 return true;
             }
