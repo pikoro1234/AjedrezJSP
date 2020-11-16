@@ -10,14 +10,16 @@ public class Alfil extends Pieza implements PiezaBloqueable {
     public Alfil(String equipo) {
         super(equipo,"A", "img/a.png");
     }
-
     
     
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {      
         
         if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
-            if(!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
+            
+            boolean valid = isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y);
+            
+            if (valid){
                 return true;
             }
         }
@@ -32,41 +34,63 @@ public class Alfil extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isBlocked(Tablero t, int pieceX, int pieceY, int toX, int toY) {
         int xaux = pieceX, yaux = pieceY;
+        //if(pieceY == toY && pieceX == toX){return true;}
         if (pieceX > toX && pieceY < toY){ // Diagonal arriba izq
+            xaux--;
+            yaux++;
             while (!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null){
+                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
                     return false;
                 }
                 xaux--;
                 yaux++;
+
+
             }
-        } else if(pieceX < toX && pieceY > toY){
+        } 
+        
+        else if(pieceX < toX && pieceY > toY){
+            xaux++;
+            yaux--;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null){
+                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
                     return false;
                 }
                 xaux++;
                 yaux--;
+
             }
-        } else if (pieceX > toX && pieceY > toY){
+
+            
+        } 
+        
+        else if (pieceX > toX && pieceY > toY){
+            xaux--;
+            yaux--;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null){
+                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
                     return false;
-                }
+                }  
                 xaux--;
                 yaux--;
+             
             }
-        } else if (pieceX < toX && pieceY < toY){
+        } 
+        
+        else if (pieceX < toX && pieceY < toY){
+            xaux++;
+            yaux++;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null){
+                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
                     return false;
-                }
-                
+                }  
                 xaux++;
-                yaux++;                
+                yaux++;  
+                     
             }
 
         }
+
         return true;
     }
     

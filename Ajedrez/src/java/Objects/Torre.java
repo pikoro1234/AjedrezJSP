@@ -45,7 +45,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
                 }
             }
             
-        } else {
+        } else if (pieceX == toX){
             
             int dy = (pieceY < toY) ? 1 : -1;
              for (int i = pieceY + dy ; i != toY ; i+= dy){

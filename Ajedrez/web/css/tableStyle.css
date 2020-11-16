@@ -73,6 +73,14 @@ table tbody tr td .btnEnviar{
     width: 50%;
 }
 
+.contenido-rigth table th, td{
+    word-wrap: break-word;
+}
+
+.contenido-rigth table{
+    table-layout: fixed;
+}
+
 .contenido-left .card-java{
     display: flex;    
 }
@@ -84,5 +92,9 @@ table tbody tr td .btnEnviar{
 .contenedor-principal .contenido-left .card-java,
 .contenedor-principal .contenido-rigth .card-java{
     width: 100%;
+}
+
+.mover{
+    background-color: #90E0EF;
 }
 

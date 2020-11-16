@@ -60,7 +60,6 @@ public class Partida {
                 jugador1.getCache().setY(y);
                 this.getPossibleMoves(getJugadorBlanco(), getTablero());
                 
-                //TODO: Pintar posibles movimientos en el tablero
                 return;
             }            
           
@@ -151,11 +150,16 @@ public class Partida {
     }
     
     public void move(Jugador j,int x,int y){
+
         getTablero().tablero[j.getCache().getX()][j.getCache().getY()] = null;
+  
+        if(getTablero().tablero[x][y] != null){
+            if (!(j.getEquipo().equals(t.tablero[x][y].getEquipo())) && t.tablero[x][y] != null && !(t.tablero[x][y] instanceof Fantasma )) {
+                j.agregar(t.tablero[x][y]);
+            }            
+        }
+        
         getTablero().tablero[x][y] = j.getCache();
         cleanPossibleMoves();
     }
-
-    
-    
 }
