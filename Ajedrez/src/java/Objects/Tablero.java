@@ -119,5 +119,9 @@ public class Tablero {
         var +="</tbody></table>";
         
         return var;
-    }        
+    }
+    
+    public boolean isOccupied(int x,int y){
+        return tablero[x][y] != null && !(tablero[x][y] instanceof Fantasma);
+    }
 }

@@ -9,7 +9,7 @@ package Objects;
  *
  * @author sergi.poza
  */
-public class Reina extends Pieza{
+public class Reina extends Pieza {
 
     public Reina(String equipo) {
         super(equipo, "Q", "img/q.png");

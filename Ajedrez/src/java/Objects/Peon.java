@@ -7,7 +7,7 @@ package Objects;
 
 public class Peon extends Pieza implements PiezaBloqueable {
     
-    private boolean moved = false;
+    public boolean moved = false;
     
     public Peon(String equipo) {
         super(equipo, "P", "img/p.png");
@@ -17,27 +17,36 @@ public class Peon extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {
             
-            int modX = j.getCache().getEquipo().equals("blanco") ? 1 : -1;
-            Peon p = (Peon) j.getCache().getPieza();
-            int xaux,yaux;          
-            
-            
-            
-            if (!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
-                return true;
-            }
-            
-            return false;
+        if(isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
+            return true;
         }
+        return false;
+    }
 
     @Override
     public boolean isBlocked(Tablero t, int pieceX, int pieceY, int toX, int toY) {
-            
-            if(this.moved && t.tablero[toX][toY] == null){
-                return false;
+            Peon p = (Peon) t.tablero[pieceX][pieceY];
+            if(pieceY == toY){
+                if (!p.moved) {
+                    int dif = p.getEquipo().equals("blanco") ? toX - pieceX : pieceX - toX;
+                    if(dif == 2){
+                        while(!(dif == 0)){
+                            if(p.getEquipo().equals("blanco")){
+                                if(t.tablero[pieceX++][pieceY] != null){
+                                    return true;
+                                }
+                            }else{
+                                if(t.tablero[pieceX--][pieceY] != null){
+                                    return true;
+                                }
+                            }
+                            dif--;
+                        }
+                    }
+                } else {
+
+                }
             }
-            
-            return true;
+            return false;
         }
     }
-//}
