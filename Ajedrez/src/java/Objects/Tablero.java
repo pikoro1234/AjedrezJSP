@@ -27,6 +27,7 @@ public class Tablero {
     
     public static void resetTablero(){
         instance = null;
+        instance = new Tablero();
     }
     
     public Pieza getPieza(int x,int y){

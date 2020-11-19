@@ -1,5 +1,6 @@
 package Servlets;
 
+import Objects.Jugador;
 import Objects.Partida;
 import Objects.Pieza;
 import Objects.Tablero;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "ServletTablero", urlPatterns = {"/Tablero"})
 public class ServletTablero extends HttpServlet {
     
-    /**
+    /**f
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -51,6 +52,7 @@ public class ServletTablero extends HttpServlet {
             //coordenadas y valor de objeto ficha            
             String coordenada = request.getParameter("coordenadaServ");
             
+            
             String tipoFichaTablero = request.getParameter("objetoNombreServ");           
             
             boolean reset = Boolean.valueOf(request.getParameter("valorPrueba"));
@@ -58,8 +60,9 @@ public class ServletTablero extends HttpServlet {
             
             if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
                 Tablero.resetTablero();
-                //out.print(p.getTablero().printBoard());
-                //ses.setAttribute("partida", null);
+                ses.setAttribute("partida", p = new Partida(new Jugador(p.getJugadorBlanco().getNombre(),p.getJugadorBlanco().getEquipo())
+                        ,new Jugador(p.getJugadorNegro().getNombre(),p.getJugadorNegro().getEquipo())));
+                out.print(p.getTablero().printBoard());                
                 return;
             }
 
@@ -93,7 +96,6 @@ public class ServletTablero extends HttpServlet {
             
             out.print(p.getTablero().printBoard());
             
-            p.getTablero().getTablero();
         }        
     }
 

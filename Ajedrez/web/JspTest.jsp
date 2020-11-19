@@ -36,14 +36,12 @@
         Partida p = (Partida) session.getAttribute("partida");
         Pieza[][] tablero = null;
 
-        
-       if (p == null){
+        if (p == null){
            p = new Partida(new Jugador(nombreA,t1),new Jugador(nombreB,t2));
            session.setAttribute("partida", p);
            tablero = p.getTablero().tablero;
        }        
-        session.setAttribute("rand", new String("asdas"));
-
+        
     %>
     
     <%="longitud de array es: "+Tablero.get().tablero.length%>

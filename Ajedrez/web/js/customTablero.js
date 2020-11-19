@@ -84,8 +84,7 @@ $(document).ready(function(){
               valorPrueba : "true"  
             },
             success: function(response){   
-                $(".contenido-rigth").html(response);
-                console.log("enviamos todo el ajax...");
+                console.log("Nueva partida pulsado");
                 console.log(response);
             },
             error: function(){
