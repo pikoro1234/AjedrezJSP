@@ -98,3 +98,8 @@ table tbody tr td .btnEnviar{
     background-color: #90E0EF;
 }
 
+#btnGame{
+    width: 50%;
+    margin: auto;
+    height: 75px;
+}

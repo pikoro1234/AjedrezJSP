@@ -29,7 +29,7 @@ public class Peon extends Pieza implements PiezaBloqueable {
             if(pieceY == toY){
                 if (!p.moved) {
                     int dif = p.getEquipo().equals("blanco") ? toX - pieceX : pieceX - toX;
-                    if(dif == 2){
+                    if(dif == 2 || dif == 1){
                         while(!(dif == 0)){
                             if(p.getEquipo().equals("blanco")){
                                 if(t.tablero[pieceX++][pieceY] != null){

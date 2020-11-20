@@ -50,7 +50,7 @@
         <div class='contenedor-principal d-flex'>
             <div class="contenido-left">
                 <div class='user-left card-java'>
-                    <div class="card">
+                    <div class="card usuario-box">
                         <div class="card-header text-center">Usuario A</div>
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-uno"><%= nombreA %></h5>
@@ -73,7 +73,7 @@
                     </div>
                 </div><!--fin user-left-->
                 <div class='user-rigth card-java'>
-                    <div class="card">
+                    <div class="card usuario-box">
                         <div class="card-header text-center">Usuario B</div>
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-dos"><%= nombreB %></h5>
