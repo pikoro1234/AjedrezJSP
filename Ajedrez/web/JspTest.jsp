@@ -51,10 +51,11 @@
             <div class="contenido-left">
                 <div class='user-left card-java'>
                     <div class="card usuario-box">
-                        <div class="card-header text-center">Usuario A</div>
+                        <div class="card-header text-center"><strong>Usuario A</strong></div>
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-uno"><%= nombreA %></h5>
-                                    <p class="card-text"><strong>Equipo:</strong><%= t1 %></p>  
+                                <div class="bg-white equipos"></div>
+                                <p class="card-text"><strong>Equipo:</strong><%= t1 %></p>  
                             </div>
                     </div>
                     <br>
@@ -62,22 +63,24 @@
                     <div class="card">
                         <div class="card-header text-center">Cementerio</div>
                             <div class="card-body">
-                                <table class="table table-striped">
+                                <div class="nuevoCementerio-dos"></div>
+                                <!--<table class="table table-striped">
                                     <thead>
                                     </thead>
                                     <tbody>
                                         <tr class="reemplazo-js-blancas"></tr>
                                      </tbody>
-                                </table>                                       
+                                </table>-->                                       
                             </div>
                     </div>
                 </div><!--fin user-left-->
                 <div class='user-rigth card-java'>
                     <div class="card usuario-box">
-                        <div class="card-header text-center">Usuario B</div>
+                        <div class="card-header text-center"><strong>Usuario B</strong></div>
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-dos"><%= nombreB %></h5>
-                                    <p class="card-text"><strong>Equipo:</strong><%= t2 %></p>                                   
+                                <div class="bg-dark equipos"></div>
+                                <p class="card-text"><strong>Equipo:</strong><%= t2 %></p>                                   
                             </div>
                     </div>
                     <br>
@@ -85,17 +88,18 @@
                     <div class="card">
                         <div class="card-header text-center">Cementerio</div>
                             <div class="card-body">
-                                <table class="table table-striped">
+                                <div class="nuevoCementerio"></div>
+                                <!--<table class="table table-striped">
                                     <thead>   
                                     </thead>
                                     <tbody>
                                       <tr class="reemplazo-js-negras"></tr>
                                     </tbody>
-                                </table> 
+                                </table> -->
                             </div>
                     </div>
                 </div><!--fin user-rigth-->
-                <div class="user-center-button"> 
+                <div class="user-center-button text-center mb-4"> 
                     <form class='formularioDatos'>                                                   
                         <input type='button' id='btnGame' value='Nueva Partida'>
                     </form> 

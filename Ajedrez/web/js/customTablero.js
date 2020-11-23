@@ -4,22 +4,44 @@ $(document).ready(function(){
     
     var arrayNegras = new Array();
     
-    var tablaTdBlancas = document.querySelector(".reemplazo-js-blancas");
+    var nColumnas = 0;
     
-    tablaTdBlancas.innerHTML = "";
+    /*var tablaTdBlancas = document.querySelector(".reemplazo-js-blancas");
     
-    var tablaTdNegras = document.querySelector(".reemplazo-js-negras");
+    tablaTdBlancas.innerHTML = "";*/
     
-    tablaTdNegras.innerHTML = "";
+    /*var tablaTdNegras = document.querySelector(".reemplazo-js-negras");
+    
+    tablaTdNegras.innerHTML = "";*/
+    
+    var cardNegras = document.querySelector(".nuevoCementerio-dos");
+    
+    cardNegras.innerHTML = "";
+    
+    var cardBlancas = document.querySelector(".nuevoCementerio");
+    
+    cardBlancas.innerHTML = "";
         
     var imagenMuertosNegras = document.getElementsByClassName("valorMuertoB"),
     namesValues = [].map.call(imagenMuertosNegras,function(dataInput){
         arrayBlancas.push(dataInput.value);
     });
     
+    
     arrayBlancas.forEach(function(inputAll){
         
-        tablaTdBlancas.innerHTML += "<td><img src='"+inputAll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";
+        cardNegras.innerHTML += "<div class='card'><img src='"+inputAll+"' width='50' height='50' class='card-img-top'></div>";
+    
+    
+        //nColumnas = $(".table-striped tr td").length;
+
+        //ablaTdBlancas.innerHTML += "<td><img src='"+inputAll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";
+
+        
+        
+        
+        
+
     });
     
     var imagenMuertosBlancas = document.getElementsByClassName("valorMuertoA"),
@@ -28,9 +50,11 @@ $(document).ready(function(){
     });
     
     arrayNegras.forEach(function(inputOll){
-        tablaTdNegras.innerHTML += "<td><img src='"+inputOll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";     
-    });
         
+        cardBlancas.innerHTML += "<div class='card'><img src='"+inputOll+"' width='50' height='50' class='card-img-top'></div>";
+        //tablaTdNegras.innerHTML += "<td><img src='"+inputOll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";     
+
+    });  
     
     //e.preventDefault(); return false; quitar evento de recarga formulario 
     
@@ -84,7 +108,8 @@ $(document).ready(function(){
               valorPrueba : "true"  
             },
             success: function(response){   
-                console.log("Nueva partida pulsado");
+                $(".contenido-rigth").html(response);
+                console.log("enviamos todo el ajax...");
                 console.log(response);
             },
             error: function(){

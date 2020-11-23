@@ -40,8 +40,8 @@
             <!--<span class="alertacion" style="padding-bottom: 10px;">Click Boton...</span>-->
             <span class="bg-dark information">Información<i data-feather="alert-octagon"></i></span>
 		<div class="autor bg-dark">
-			<span class="autoria autoria-uno">integrante integrante</span>
-			<span class="autoria autoria-dos">integrante integrante</span>
+			<span class="autoria autoria-uno">Sergi Poza</span>
+			<span class="autoria autoria-dos">Jorge Fiorilo Cardenas</span>
                         <hr style="margin-top: 0px!important;">
 			<span class="autoria autoria-tres">copyright© 2019 FLYPHI-BIT.S.R.L</span>
 		</div>

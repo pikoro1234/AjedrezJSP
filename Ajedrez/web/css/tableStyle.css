@@ -103,3 +103,40 @@ table tbody tr td .btnEnviar{
     margin: auto;
     height: 75px;
 }
+
+/*cementerios*/
+.contenedor-principal .contenido-left .user-left .usuario-box,
+.contenedor-principal .contenido-left .user-left .card,
+.contenedor-principal .contenido-left .user-rigth .usuario-box,
+.contenedor-principal .contenido-left .user-rigth .card{
+    width: 50%;
+}
+
+.contenedor-principal .contenido-left .user-left .usuario-box .card-body .equipos,
+.contenedor-principal .contenido-left .user-rigth .usuario-box .card-body .equipos{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    margin: 10px auto;
+}
+
+.contenedor-principal .contenido-left .user-left .card .card-body,
+.contenedor-principal .contenido-left .user-rigth .card .card-body{
+    padding: 5px;
+    text-align: center;
+}
+
+.contenedor-principal .contenido-left .card-java .card .card-body .nuevoCementerio-dos,
+.contenedor-principal .contenido-left .card-java .card .card-body .nuevoCementerio{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.contenedor-principal .contenido-left .card-java .card .card-body .nuevoCementerio-dos .card,
+.contenedor-principal .contenido-left .card-java .card .card-body .nuevoCementerio .card{
+    width: 27%;
+    margin: 5px;
+    background-color: #C1C7B4;
+}
