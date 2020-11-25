@@ -152,7 +152,7 @@ public class Partida {
     public void move(Jugador j,int x,int y){
         if(getTablero().tablero[j.getCache().getX()][j.getCache().getY()] instanceof Peon){
             Peon p =(Peon) getTablero().tablero[j.getCache().getX()][j.getCache().getY()];
-            p.moved = true;
+            p.setMoved(true);
         }
         
         getTablero().tablero[j.getCache().getX()][j.getCache().getY()] = null;

@@ -13,13 +13,18 @@ public class Peon extends Pieza implements PiezaBloqueable {
         super(equipo, "P", "img/p.png");
 
     }
-
+    
+    public void setMoved(boolean b){
+        this.moved = b;
+    }
+    
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {
             
-        if(isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
+        if(!isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y)){
             return true;
         }
+                    
         return false;
     }
 
@@ -33,20 +38,28 @@ public class Peon extends Pieza implements PiezaBloqueable {
                         while(!(dif == 0)){
                             if(p.getEquipo().equals("blanco")){
                                 if(t.tablero[pieceX++][pieceY] != null){
-                                    return true;
+                                    return false;
                                 }
                             }else{
                                 if(t.tablero[pieceX--][pieceY] != null){
-                                    return true;
+                                    return false;
                                 }
                             }
                             dif--;
                         }
                     }
                 } else {
-
+                    int nextPos = p.getEquipo().equals("blanco") ? pieceX + 1 : pieceX - 1;
+                    if (nextPos <= 7 && nextPos >=0 && t.tablero[nextPos][pieceY] == null){
+                        if (p.getEquipo().equals("blanco") && toX - pieceX == 1){
+                            return false;
+                        } else if (p.getEquipo().equals("negro") && pieceX - toX == 1){
+                            return false;
+                        }
+                    }                    
                 }
+
             }
-            return false;
+            return true;
         }
     }

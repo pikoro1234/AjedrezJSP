@@ -39,7 +39,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
             
             int dx = (pieceX < toX) ? 1 : -1;
             
-            for (int i = pieceX + dx ; i != toX ; i+= dx){
+            for (int i = pieceX + dx ; i != toX; i+= dx){
                 if (t.tablero[i][pieceY] != null){
                     return false;
                 }
@@ -48,7 +48,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
         } else if (pieceX == toX){
             
             int dy = (pieceY < toY) ? 1 : -1;
-             for (int i = pieceY + dy ; i != toY ; i+= dy){
+             for (int i = pieceY + dy ; i != toY; i+= dy){
                 if (t.tablero[pieceX][i] != null){
                     return false;
                 }
