@@ -33,10 +33,10 @@ public class Peon extends Pieza implements PiezaBloqueable {
             Peon p = (Peon) t.tablero[pieceX][pieceY];
             if(pieceY == toY){
                 if (!p.moved) {
-                    int dif = p.getEquipo().equals(Equipo.Blanco) ? toX - pieceX : pieceX - toX;
+                    int dif = p.getEquipo() == Equipo.Blanco ? toX - pieceX : pieceX - toX;
                     if(dif == 2 || dif == 1){
                         while(!(dif == 0)){
-                            if(p.getEquipo().equals(Equipo.Blanco)){
+                            if(p.getEquipo() == Equipo.Blanco){
                                 if(t.tablero[pieceX++][pieceY] != null){
                                     return false;
                                 }
@@ -49,13 +49,13 @@ public class Peon extends Pieza implements PiezaBloqueable {
                         }
                     }
                 } else {
-                    int nextPos = p.getEquipo().equals(Equipo.Blanco) ? pieceX + 1 : pieceX - 1;
+                    int nextPos = p.getEquipo() == Equipo.Blanco ? pieceX + 1 : pieceX - 1;
                     if (nextPos <= 7 && nextPos >=0 && t.tablero[nextPos][pieceY] == null){
-                        if (p.getEquipo().equals(Equipo.Blanco) && toX - pieceX == 1){
+                        if (p.getEquipo() == Equipo.Blanco && toX - pieceX == 1){
                             return false;
                         } 
                         
-                        if (p.getEquipo().equals(Equipo.Negro) && pieceX - toX == 1){
+                        if (p.getEquipo() == Equipo.Negro && pieceX - toX == 1){
                             return false;
                         }
                     }                    

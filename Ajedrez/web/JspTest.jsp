@@ -61,14 +61,7 @@
                     <div class="card">
                         <div class="card-header text-center">Cementerio</div>
                             <div class="card-body">
-                                <div class="nuevoCementerio-dos"></div>
-                                <!--<table class="table table-striped">
-                                    <thead>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="reemplazo-js-blancas"></tr>
-                                     </tbody>
-                                </table>-->                                       
+                                <div class="nuevoCementerio-dos"></div>                                  
                             </div>
                     </div>
                 </div><!--fin user-left-->
@@ -87,13 +80,6 @@
                         <div class="card-header text-center">Cementerio</div>
                             <div class="card-body">
                                 <div class="nuevoCementerio"></div>
-                                <!--<table class="table table-striped">
-                                    <thead>   
-                                    </thead>
-                                    <tbody>
-                                      <tr class="reemplazo-js-negras"></tr>
-                                    </tbody>
-                                </table> -->
                             </div>
                     </div>
                 </div><!--fin user-rigth-->

@@ -60,7 +60,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
 
     public boolean isValidMovement(int pX,int pY,int x,int y){
         
-        return pX == x || pY == y ? true : false;
+        return (pX == x || pY == y);
         
     }    
     

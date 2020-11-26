@@ -15,10 +15,6 @@ public class Fantasma extends Pieza{
         super(Equipo.Fantasma, "FA", "");        
     }
     
-    public Fantasma(String equipo, String nombre, String img) {
-        super(Equipo.Fantasma, "FA", "");
-    }
-    
     @Override
     public boolean isPossibleMoving(Tablero t, Jugador p, int x, int y) {
         return false;

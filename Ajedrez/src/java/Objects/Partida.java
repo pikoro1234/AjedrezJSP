@@ -158,7 +158,7 @@ public class Partida {
         getTablero().tablero[j.getCache().getX()][j.getCache().getY()] = null;
   
         if(getTablero().tablero[x][y] != null){
-            if (!(j.getEquipo().equals(t.tablero[x][y].getEquipo())) && t.tablero[x][y] != null && !(t.tablero[x][y] instanceof Fantasma )) {
+            if (!(j.getEquipo() == t.tablero[x][y].getEquipo()) && t.tablero[x][y] != null && !(t.tablero[x][y] instanceof Fantasma )) {
                 j.agregar(t.tablero[x][y]);
             }
         }

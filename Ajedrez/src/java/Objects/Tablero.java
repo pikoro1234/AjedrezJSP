@@ -5,7 +5,6 @@
  */
 package Objects;
 
-import static java.lang.System.out;
 
 public class Tablero {
     
@@ -121,8 +120,5 @@ public class Tablero {
         
         return var;
     }
-    
-    public boolean isOccupied(int x,int y){
-        return tablero[x][y] != null && !(tablero[x][y] instanceof Fantasma);
-    }
+   
 }
