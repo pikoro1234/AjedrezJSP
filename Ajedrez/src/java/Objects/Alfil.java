@@ -7,7 +7,7 @@ package Objects;
 
 public class Alfil extends Pieza implements PiezaBloqueable {
 
-    public Alfil(String equipo) {
+    public Alfil(Equipo equipo) {
         super(equipo,"A", "img/a.png");
     }
     
@@ -34,7 +34,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isBlocked(Tablero t, int pieceX, int pieceY, int toX, int toY) {
         int xaux = pieceX, yaux = pieceY;
-        //if(pieceY == toY && pieceX == toX){return true;}
+
         if (pieceX > toX && pieceY < toY){ // Diagonal arriba izq
             xaux--;
             yaux++;

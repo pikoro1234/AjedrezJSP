@@ -9,7 +9,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
     
     private String nombre;
     
-    public Torre(String equipo){
+    public Torre(Equipo equipo){
         super(equipo,"T","img/t.png");
     }
     

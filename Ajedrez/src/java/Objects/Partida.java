@@ -50,7 +50,7 @@ public class Partida {
         if (turno % 2 == 0){
    
           if (getTablero().tablero[x][y] != null 
-                    && getTablero().tablero[x][y].getEquipo().equals("blanco")) {
+                    && getTablero().tablero[x][y].getEquipo() == Equipo.Blanco ) {
                 
                 if (getJugadorBlanco().getCache() != getTablero().tablero[x][y]){
                     cleanPossibleMoves();
@@ -65,7 +65,7 @@ public class Partida {
           
           
           if (getTablero().tablero[x][y] == null || getTablero().tablero[x][y]
-                  .getEquipo().equals("negro") || getTablero().tablero[x][y] instanceof Fantasma){
+                  .getEquipo() == Equipo.Negro  || getTablero().tablero[x][y] instanceof Fantasma){
               if (jugador1.getCache() != null){
                 
                 if (jugador1.getCache().isPossibleMoving(getTablero(),getJugadorBlanco(), x, y)){
@@ -80,7 +80,7 @@ public class Partida {
         } else {
             
             if (getTablero().tablero[x][y] != null 
-                    && getTablero().tablero[x][y].getEquipo().equals("negro")){
+                    && getTablero().tablero[x][y].getEquipo() == Equipo.Negro ){
 
                 if (getJugadorNegro().getCache() != getTablero().tablero[x][y]){
                     cleanPossibleMoves();
@@ -94,7 +94,7 @@ public class Partida {
             }
             
           if (getTablero().tablero[x][y] == null || 
-                  getTablero().tablero[x][y].getEquipo().equals("blanco") || getTablero().tablero[x][y] instanceof Fantasma){
+                  getTablero().tablero[x][y].getEquipo() == Equipo.Blanco || getTablero().tablero[x][y] instanceof Fantasma){
                   
               if (jugador2.getCache() != null){
                 
@@ -151,7 +151,7 @@ public class Partida {
     
     public void move(Jugador j,int x,int y){
         if(getTablero().tablero[j.getCache().getX()][j.getCache().getY()] instanceof Peon){
-            Peon p =(Peon) getTablero().tablero[j.getCache().getX()][j.getCache().getY()];
+            Peon p = (Peon) getTablero().tablero[j.getCache().getX()][j.getCache().getY()];
             p.setMoved(true);
         }
         

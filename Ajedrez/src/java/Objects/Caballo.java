@@ -7,7 +7,7 @@ package Objects;
 
 public class Caballo extends Pieza {
 
-    public Caballo(String equipo) {
+    public Caballo(Equipo equipo) {
         super(equipo,"C","img/c.png");
     }
 

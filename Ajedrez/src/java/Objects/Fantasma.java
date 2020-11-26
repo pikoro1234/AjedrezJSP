@@ -12,11 +12,11 @@ package Objects;
 public class Fantasma extends Pieza{
 
     public Fantasma(){
-        super("", "FA", "");        
+        super(Equipo.Fantasma, "FA", "");        
     }
     
     public Fantasma(String equipo, String nombre, String img) {
-        super("", "FA", "");
+        super(Equipo.Fantasma, "FA", "");
     }
     
     @Override

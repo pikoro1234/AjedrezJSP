@@ -8,14 +8,14 @@ package Objects;
 
 public abstract class Pieza {
 
-    private String equipo;
+    private Equipo equipo;
     private String nombre;
     private String img;
     private boolean eatable;
     private int x;
     private int y;
     
-    public Pieza(String equipo,String nombre,String img){
+    public Pieza(Equipo equipo,String nombre,String img){
        this.equipo = equipo;
        this.nombre = nombre;
        this.eatable = false;
@@ -32,7 +32,7 @@ public abstract class Pieza {
         return img;
     }
     
-    public String getEquipo(){
+    public Equipo getEquipo(){
         return equipo;
     }
     
@@ -66,11 +66,11 @@ public abstract class Pieza {
     
     
     public final void setImage(String path){
-        if (equipo.equalsIgnoreCase("Blanco") && !(equipo.isEmpty())){
+        if (equipo == Equipo.Blanco){
             String[] a = path.split("/");
             a[1] = "/blancas/"+nombre.toLowerCase()+"b.png";
             this.img = String.join("",a);
-        } else if (equipo.equalsIgnoreCase("Negro") && !(equipo.isEmpty())){
+        } else if (equipo == Equipo.Negro){
             String a[] = path.split("/");
             a[1] = "/negras/"+nombre.toLowerCase()+"n.png";
             this.img = String.join("",a);

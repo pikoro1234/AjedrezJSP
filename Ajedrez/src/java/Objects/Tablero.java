@@ -40,32 +40,32 @@ public class Tablero {
     
     public void createBoard(){
         
-        tablero[0][0] = new Torre("blanco");
-        tablero[0][7] = new Torre("blanco");
-        tablero[7][0] = new Torre("negro");
-        tablero[7][7] = new Torre("negro");
+        tablero[0][0] = new Torre(Equipo.Blanco);
+        tablero[0][7] = new Torre(Equipo.Blanco);
+        tablero[7][0] = new Torre(Equipo.Negro);
+        tablero[7][7] = new Torre(Equipo.Negro);
         
-        tablero[0][1] = new Caballo("blanco");
-        tablero[0][6] = new Caballo("blanco");
-        tablero[7][1] = new Caballo("negro");
-        tablero[7][6] = new Caballo("negro");
+        tablero[0][1] = new Caballo(Equipo.Blanco);
+        tablero[0][6] = new Caballo(Equipo.Blanco);
+        tablero[7][1] = new Caballo(Equipo.Negro);
+        tablero[7][6] = new Caballo(Equipo.Negro);
 
-        tablero[0][2] = new Alfil("blanco");
-        tablero[0][5] = new Alfil("blanco");
-        tablero[7][2] = new Alfil("negro");
-        tablero[7][5] = new Alfil("negro");
+        tablero[0][2] = new Alfil(Equipo.Blanco);
+        tablero[0][5] = new Alfil(Equipo.Blanco);
+        tablero[7][2] = new Alfil(Equipo.Negro);
+        tablero[7][5] = new Alfil(Equipo.Negro);
         
-        tablero[0][3] = new Rey("blanco");
-        tablero[7][3] = new Rey("negro");
-        tablero[0][4] = new Reina("blanco");
-        tablero[7][4] = new Reina("negro");
+        tablero[0][3] = new Rey(Equipo.Blanco);
+        tablero[7][3] = new Rey(Equipo.Negro);
+        tablero[0][4] = new Reina(Equipo.Blanco);
+        tablero[7][4] = new Reina(Equipo.Negro);
         
         for (int i=0;i<tablero[1].length;i++){
-            tablero[1][i] = new Peon("blanco");
+            tablero[1][i] = new Peon(Equipo.Blanco);
         }
 
         for (int i=0;i<tablero[6].length;i++){
-            tablero[6][i] = new Peon("negro");
+            tablero[6][i] = new Peon(Equipo.Negro);
         }
          
     }

@@ -11,7 +11,7 @@ package Objects;
  */
 public class Reina extends Pieza {
 
-    public Reina(String equipo) {
+    public Reina(Equipo equipo) {
         super(equipo, "Q", "img/q.png");
     }
 

@@ -4,6 +4,7 @@
     Author     : jorge
 --%>
 
+<%@page import="Objects.Equipo"%>
 <%@page import="Objects.Tablero"%>
 <%@page import="Objects.Peon"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,9 +26,6 @@
     <body>  
         
         <% 
-        String t1 = request.getParameter("dato1");
-                        
-        String t2 = request.getParameter("dato2");
         
         String nombreA = request.getParameter("nombre1html"); 
         
@@ -37,7 +35,7 @@
         Pieza[][] tablero = null;
 
         if (p == null){
-           p = new Partida(new Jugador(nombreA,t1),new Jugador(nombreB,t2));
+           p = new Partida(new Jugador(nombreA,Equipo.Blanco),new Jugador(nombreB,Equipo.Negro));
            session.setAttribute("partida", p);
            tablero = p.getTablero().tablero;
        }        
@@ -55,7 +53,7 @@
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-uno"><%= nombreA %></h5>
                                 <div class="bg-white equipos"></div>
-                                <p class="card-text"><strong>Equipo:</strong><%= t1 %></p>  
+                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Negro %></p>  
                             </div>
                     </div>
                     <br>
@@ -80,7 +78,7 @@
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-dos"><%= nombreB %></h5>
                                 <div class="bg-dark equipos"></div>
-                                <p class="card-text"><strong>Equipo:</strong><%= t2 %></p>                                   
+                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Blanco %></p>                                   
                             </div>
                     </div>
                     <br>

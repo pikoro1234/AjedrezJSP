@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Jugador {
     
     private String nombre;   
-    private String equipo;
+    private Equipo equipo;
     private Pieza cache;
     private ArrayList<Pieza> cementerio = new ArrayList<Pieza>();
        
-    public Jugador(String nombre, String equipo) {
+    public Jugador(String nombre, Equipo equipo) {
         this.nombre = nombre;
         this.equipo = equipo;
     }
@@ -24,11 +24,11 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public String getEquipo() {
+    public Equipo getEquipo() {
         return equipo;
     }
 
-    public void setEquipo(String equipo) {
+    public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
 
