@@ -36,7 +36,7 @@ public class Jugador {
         this.cache = p;
     }
     
-    public Pieza getCache(){
+    public Pieza getSelected(){
         return this.cache;
     }
     

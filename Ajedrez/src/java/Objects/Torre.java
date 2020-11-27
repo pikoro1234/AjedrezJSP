@@ -18,9 +18,9 @@ public class Torre extends Pieza implements PiezaBloqueable {
         
         boolean valid = true;
         
-        if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){          
+        if (isValidMovement(j.getSelected().getX(),j.getSelected().getY(),x,y)){          
             
-            valid = isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y);
+            valid = isBlocked(t,j.getSelected().getX(),j.getSelected().getY(),x,y);
             
             if (valid){
                 return true;
@@ -40,7 +40,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
             int dx = (pieceX < toX) ? 1 : -1;
             
             for (int i = pieceX + dx ; i != toX; i+= dx){
-                if (t.tablero[i][pieceY] != null){
+                if (t.getPieceAt(i, pieceY) != null){
                     return false;
                 }
             }
@@ -49,7 +49,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
             
             int dy = (pieceY < toY) ? 1 : -1;
              for (int i = pieceY + dy ; i != toY; i+= dy){
-                if (t.tablero[pieceX][i] != null){
+                if (t.getPieceAt(pieceX, i) != null){
                     return false;
                 }
             }           

@@ -14,19 +14,13 @@ public class Caballo extends Pieza {
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {        
 
-        if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
-                                             
-            if (t.tablero[x][y] != null) {
-                    
+        if (isValidMovement(j.getSelected().getX(),j.getSelected().getY(),x,y)){                               
+            /*if (t.getPieceAt(x, y) != null) {
                 return true;
-
-
-            }
-
+            }*/
             return true;
         }
         return false;
-
     }
     
     public boolean isValidMovement(int pX,int pY,int x,int y){

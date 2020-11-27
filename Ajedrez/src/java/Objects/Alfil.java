@@ -15,9 +15,9 @@ public class Alfil extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {      
         
-        if (isValidMovement(j.getCache().getX(),j.getCache().getY(),x,y)){
+        if (isValidMovement(j.getSelected().getX(),j.getSelected().getY(),x,y)){
             
-            boolean valid = isBlocked(t,j.getCache().getX(),j.getCache().getY(),x,y);
+            boolean valid = isBlocked(t,j.getSelected().getX(),j.getSelected().getY(),x,y);
             
             if (valid){
                 return true;
@@ -39,7 +39,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
             xaux--;
             yaux++;
             while (!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
+                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
                     return false;
                 }
                 xaux--;
@@ -53,7 +53,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
             xaux++;
             yaux--;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
+                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
                     return false;
                 }
                 xaux++;
@@ -68,7 +68,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
             xaux--;
             yaux--;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
+                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
                     return false;
                 }  
                 xaux--;
@@ -81,7 +81,7 @@ public class Alfil extends Pieza implements PiezaBloqueable {
             xaux++;
             yaux++;
             while(!(xaux == toX && yaux == toY)){
-                if(t.tablero[xaux][yaux] != null && !(t.tablero[xaux][yaux] instanceof Fantasma)){
+                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
                     return false;
                 }  
                 xaux++;
