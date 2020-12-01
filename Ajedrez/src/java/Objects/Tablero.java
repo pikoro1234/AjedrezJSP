@@ -8,27 +8,16 @@ package Objects;
 
 public class Tablero {
     
-    private static Tablero instance;
+    //private static Tablero instance;
     public Pieza[][] tablero;
     
-    private Tablero(){
+    public Tablero(){
+        
         tablero = new Pieza[8][8];    
         createBoard();
     
     }
-      
-    public static Tablero get(){
-        if (instance == null){
-            instance = new Tablero();
-        }
-        return instance;
-    }
     
-    public static void resetTablero(){
-        instance = null;
-        instance = new Tablero();
-    }
-
     public Pieza getPieceAt(int x,int y){
         return tablero[x][y] != null ? tablero[x][y] : null;
     }

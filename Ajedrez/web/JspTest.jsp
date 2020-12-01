@@ -98,7 +98,7 @@
                     <table>
                         <thead></thead>
                         <tbody>                                                                                         
-                                <% out.println(Tablero.get().printBoard());%>
+                                <% out.println(p.getTablero().printBoard());%>
                         </tbody>
                     </table>
                 </div><!--fin contenedor tablero-->                

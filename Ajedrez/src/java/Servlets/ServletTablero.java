@@ -59,7 +59,6 @@ public class ServletTablero extends HttpServlet {
             
             
             if (reset){ // Si se presiona el botón de resetear partida , se reinicia el tablero
-                Tablero.resetTablero();
                 ses.setAttribute("partida", p = new Partida(new Jugador(p.getJugadorBlanco().getNombre(),p.getJugadorBlanco().getEquipo())
                         ,new Jugador(p.getJugadorNegro().getNombre(),p.getJugadorNegro().getEquipo())));
                 out.print(p.getTablero().printBoard());                

@@ -80,5 +80,27 @@ $(document).ready(function(){
         $( this ).toggleClass("cambioColor");
             
     });
-     
+
+    //inicio nuevo juego
+    $("#btnGame").click(function(e){   
+        console.log($(".titleJugador-uno").text());
+        console.log($(".titleJugador-dos").text());
+           $.ajax({
+            type:'POST',
+            url:'Tablero',
+            data: {
+              valorPrueba : "true"  
+            },
+            success: function(response){   
+                $(".contenido-rigth").html(response);
+                console.log("enviamos todo el ajax...");
+                console.log(response);
+            },
+            error: function(){
+                console.log("error al ejecutar ajax");
+            }                                    
+        });//fin ajax   
+       e.preventDefault();        
+    });//fin nueva partida
+
 });//fin document
