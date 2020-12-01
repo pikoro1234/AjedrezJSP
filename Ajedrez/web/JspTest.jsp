@@ -55,7 +55,7 @@
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-uno"><%= nombreA %></h5>
                                 <div class="bg-white equipos"></div>
-                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Negro %></p>  
+                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Blanco %></p>  
                             </div>
                     </div>
                     <br>
@@ -73,7 +73,7 @@
                             <div class="card-body">
                                 <h5 class="card-title titleJugador-dos"><%= nombreB %></h5>
                                 <div class="bg-dark equipos"></div>
-                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Blanco %></p>                                   
+                                <p class="card-text"><strong>Equipo:</strong><%= Equipo.Negro %></p>                                   
                             </div>
                     </div>
                     <br>

@@ -60,9 +60,7 @@ $(document).ready(function(){
             },
             success: function(data){   
                 
-                $(".contenido-rigth").html(data);
-                
-                console.log("exito...");
+                $(".contenido-rigth").html(data);                
             },
             error: function(){
                 
@@ -77,14 +75,11 @@ $(document).ready(function(){
    //hover para detectar celdas del tablero           
     $(".filaColumna").hover(function() {
             
-        $( this ).toggleClass("cambioColor");
-            
+        $( this ).toggleClass("cambioColor");            
     });
 
     //inicio nuevo juego
     $("#btnGame").click(function(e){   
-        console.log($(".titleJugador-uno").text());
-        console.log($(".titleJugador-dos").text());
            $.ajax({
             type:'POST',
             url:'Tablero',
@@ -93,8 +88,6 @@ $(document).ready(function(){
             },
             success: function(response){   
                 $(".contenido-rigth").html(response);
-                console.log("enviamos todo el ajax...");
-                console.log(response);
             },
             error: function(){
                 console.log("error al ejecutar ajax");

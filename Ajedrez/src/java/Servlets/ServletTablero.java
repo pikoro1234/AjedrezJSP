@@ -67,9 +67,9 @@ public class ServletTablero extends HttpServlet {
 
             int x,y;
                        
-            out.println("Ronda: "+p.getRonda());
+            //out.println("Ronda: "+p.getRonda());
             
-            out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);  
+           // out.println("Coordenadas:"+coordenada+"\n Ficha:"+tipoFichaTablero);  
             
             
             ArrayList<Pieza> listaCementerioNegros = p.getJugadorBlanco().getCementerio();
