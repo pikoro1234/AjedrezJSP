@@ -1,19 +1,10 @@
 $(document).ready(function(){ 
     
+    //cementerio de ambos equipo
     var arrayBlancas = new Array();
     
     var arrayNegras = new Array();
-    
-    var nColumnas = 0;
-    
-    /*var tablaTdBlancas = document.querySelector(".reemplazo-js-blancas");
-    
-    tablaTdBlancas.innerHTML = "";*/
-    
-    /*var tablaTdNegras = document.querySelector(".reemplazo-js-negras");
-    
-    tablaTdNegras.innerHTML = "";*/
-    
+ 
     var cardNegras = document.querySelector(".nuevoCementerio-dos");
     
     cardNegras.innerHTML = "";
@@ -22,49 +13,39 @@ $(document).ready(function(){
     
     cardBlancas.innerHTML = "";
         
+    //cementerio fichas negras
     var imagenMuertosNegras = document.getElementsByClassName("valorMuertoB"),
     namesValues = [].map.call(imagenMuertosNegras,function(dataInput){
+        
         arrayBlancas.push(dataInput.value);
     });
     
-    
+    //creacion de card por cada ficha muerta
     arrayBlancas.forEach(function(inputAll){
         
         cardNegras.innerHTML += "<div class='card'><img src='"+inputAll+"' width='50' height='50' class='card-img-top'></div>";
-    
-    
-        //nColumnas = $(".table-striped tr td").length;
-
-        //ablaTdBlancas.innerHTML += "<td><img src='"+inputAll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";
-
-        
-        
-        
-        
-
     });
     
+    
+    //cementerio fichas blancas
     var imagenMuertosBlancas = document.getElementsByClassName("valorMuertoA"),
     namesValues = [].map.call(imagenMuertosBlancas,function(data){
+        
        arrayNegras.push(data.value); 
     });
     
+    //creacion de card por cada ficha muerta
     arrayNegras.forEach(function(inputOll){
         
         cardBlancas.innerHTML += "<div class='card'><img src='"+inputOll+"' width='50' height='50' class='card-img-top'></div>";
-        //tablaTdNegras.innerHTML += "<td><img src='"+inputOll+"' class='card-img-blancas imagen-ficha' width='50' height='50' alt='...'></td>";     
-
     });  
-    
-    //e.preventDefault(); return false; quitar evento de recarga formulario 
-    
+     
+    //coordenadas cada click del usuario
     var coordenadasJs ="";
      
     var objetoNombreJs = "";
     
     $(".filaColumna").click(function(e){
-        
-        //alert("hola mundo");
         
         coordenadasJs = $(this).attr("data");
         
@@ -78,12 +59,13 @@ $(document).ready(function(){
                 objetoNombreServ : objetoNombreJs
             },
             success: function(data){   
-                //$("body").empty();
+                
                 $(".contenido-rigth").html(data);
+                
                 console.log("exito...");
-                console.log(data);
             },
             error: function(){
+                
                 console.log("error al ejecutar ajax");
             }                                    
         });//fin ajax
@@ -91,35 +73,12 @@ $(document).ready(function(){
         e.preventDefault();
         
     });
-              
-    $(".filaColumna").hover(
-        function() {
-            $( this ).toggleClass("cambioColor");
+    
+   //hover para detectar celdas del tablero           
+    $(".filaColumna").hover(function() {
+            
+        $( this ).toggleClass("cambioColor");
+            
     });
-    
-    //inicio nuevo juego
-    $("#btnGame").click(function(e){   
-        console.log($(".titleJugador-uno").text());
-        console.log($(".titleJugador-dos").text());
-           $.ajax({
-            type:'POST',
-            url:'Tablero',
-            data: {
-              valorPrueba : "true"  
-            },
-            success: function(response){   
-                $(".contenido-rigth").html(response);
-                console.log("enviamos todo el ajax...");
-                console.log(response);
-            },
-            error: function(){
-                console.log("error al ejecutar ajax");
-            }                                    
-        });//fin ajax   
-       e.preventDefault();        
-    });//fin nueva partida
-    
-   
-   
+     
 });//fin document
-

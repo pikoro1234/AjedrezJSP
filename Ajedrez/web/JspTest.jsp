@@ -29,20 +29,22 @@
         
         String nombreA = request.getParameter("nombre1html"); 
         
-        String nombreB = request.getParameter("nombre2html");                 
+        String nombreB = request.getParameter("nombre2html");     
 
         Partida p = (Partida) session.getAttribute("partida");
+        
         Pieza[][] tablero = null;
 
         if (p == null){
+            
            p = new Partida(new Jugador(nombreA,Equipo.Blanco),new Jugador(nombreB,Equipo.Negro));
+           
            session.setAttribute("partida", p);
+           
            tablero = p.getTablero().tablero;
        }        
         
     %>
-    
-    <%="longitud de array es: "+Tablero.get().tablero.length%>
            
         <h1 id='titulo' name='titulo'>Tablero</h1>       
         <div class='contenedor-principal d-flex'>

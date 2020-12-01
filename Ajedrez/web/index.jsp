@@ -19,17 +19,6 @@
         <title>Ajedrez</title>
     </head>
     
-    
-    
-    <script type="text/javascript">
-	$(document).ready(function(){
-            $("#span-home").addClass("left-span");
-            $("#span-home").click(function(){
-		$(this).css({"display":"none"});
-		$(".span-background").css({"display":"none"});
-            });
-	});
-    </script>
     <body>
         
         <!--content de background negro-->   
@@ -37,14 +26,13 @@
         
 	<div id= "span-home" class="open-span" style="text-align: center;">
             <h3>Bienvenido</h3>
-            <!--<span class="alertacion" style="padding-bottom: 10px;">Click Boton...</span>-->
             <span class="bg-dark information">Información<i data-feather="alert-octagon"></i></span>
-		<div class="autor bg-dark">
-			<span class="autoria autoria-uno">Sergi Poza</span>
-			<span class="autoria autoria-dos">Jorge Fiorilo Cardenas</span>
-                        <hr style="margin-top: 0px!important;">
-			<span class="autoria autoria-tres">copyright© 2019 FLYPHI-BIT.S.R.L</span>
-		</div>
+            <div class="autor bg-dark">
+                <span class="autoria autoria-uno">Sergi Poza Paterna</span>
+                <span class="autoria autoria-dos">Jorge Fiorilo Cardenas</span>
+                <hr style="margin-top: 0px!important;">
+                <span class="autoria autoria-tres">copyright© 2019 FLYPHI-BIT.S.R.L</span>
+            </div>
 	</div>
         
         <!--popup informacion-->
@@ -93,16 +81,7 @@
             </div>
           </div>
         </div>
-                        
-        <script>            
-            /*obtencion de valores de los checkbox*/
-            var dato1 = document.getElementById("Check1").value;                                
-            document.getElementById("dato1").value = dato1;           
-            
-            var dato2 = document.getElementById("Check2").value;            
-            document.getElementById("dato2").value = dato2;            
-        </script>
-        
+             
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
