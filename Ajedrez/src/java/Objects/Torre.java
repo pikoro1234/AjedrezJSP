@@ -40,7 +40,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
             int dx = (pieceX < toX) ? 1 : -1;
             
             for (int i = pieceX + dx ; i != toX; i+= dx){
-                if (t.getPieceAt(i, pieceY) != null){
+                if (t.getPieceAt(i, pieceY) != null && !(t.getPieceAt(i, pieceY) instanceof Fantasma)){
                     return false;
                 }
             }
@@ -49,7 +49,7 @@ public class Torre extends Pieza implements PiezaBloqueable {
             
             int dy = (pieceY < toY) ? 1 : -1;
              for (int i = pieceY + dy ; i != toY; i+= dy){
-                if (t.getPieceAt(pieceX, i) != null){
+                if (t.getPieceAt(pieceX, i) != null && !(t.getPieceAt(i, pieceY) instanceof Fantasma)){
                     return false;
                 }
             }           

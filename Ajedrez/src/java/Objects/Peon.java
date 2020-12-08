@@ -50,7 +50,7 @@ public class Peon extends Pieza implements PiezaBloqueable {
                     }
                 } else {
                     int nextPos = p.getEquipo() == Equipo.Blanco ? pieceX + 1 : pieceX - 1;
-                    if (nextPos <= 7 && nextPos >=0 && t.getPieceAt(nextPos, pieceY) == null){
+                    if (nextPos <= 7 && nextPos >=0 && t.getPieceAt(nextPos, pieceY) == null || t.getPieceAt(nextPos, pieceY) instanceof Fantasma){
                         if (p.getEquipo() == Equipo.Blanco && toX - pieceX == 1){
                             return false;
                         } 
