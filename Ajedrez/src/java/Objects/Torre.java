@@ -16,11 +16,10 @@ public class Torre extends Pieza implements PiezaBloqueable {
     @Override
     public boolean isPossibleMoving(Tablero t,Jugador j,int x,int y) {
         
-        boolean valid = true;
         
         if (isValidMovement(j.getSelected().getX(),j.getSelected().getY(),x,y)){          
             
-            valid = isBlocked(t,j.getSelected().getX(),j.getSelected().getY(),x,y);
+            boolean valid = isBlocked(t,j.getSelected().getX(),j.getSelected().getY(),x,y);
             
             if (valid){
                 return true;
@@ -45,17 +44,21 @@ public class Torre extends Pieza implements PiezaBloqueable {
                 }
             }
             
+            return true;
+            
         } else if (pieceX == toX){
             
             int dy = (pieceY < toY) ? 1 : -1;
              for (int i = pieceY + dy ; i != toY; i+= dy){
-                if (t.getPieceAt(pieceX, i) != null && !(t.getPieceAt(i, pieceY) instanceof Fantasma)){
+                if (t.getPieceAt(pieceX, i) != null && !(t.getPieceAt(pieceX, i) instanceof Fantasma)){
                     return false;
                 }
-            }           
+            }
+             
+             return true;
         }
         
-        return true;
+        return false;
     }
 
     public boolean isValidMovement(int pX,int pY,int x,int y){
