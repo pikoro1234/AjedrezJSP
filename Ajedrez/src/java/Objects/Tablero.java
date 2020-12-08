@@ -19,7 +19,7 @@ public class Tablero {
     }
     
     public Pieza getPieceAt(int x,int y){
-        return tablero[x][y] != null ? tablero[x][y] : null;
+       return tablero[x][y];
     }
    
     public Pieza[][] getTablero(){
