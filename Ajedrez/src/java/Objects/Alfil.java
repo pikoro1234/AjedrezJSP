@@ -5,6 +5,8 @@
  */
 package Objects;
 
+import Utils.Directions;
+
 public class Alfil extends Pieza implements PiezaBloqueable {
 
     public Alfil(Equipo equipo) {
@@ -33,61 +35,23 @@ public class Alfil extends Pieza implements PiezaBloqueable {
 
     @Override
     public boolean isBlocked(Tablero t, int pieceX, int pieceY, int toX, int toY) {
-        int xaux = pieceX, yaux = pieceY;
 
         if (pieceX > toX && pieceY < toY){ // Diagonal arriba izq
-            xaux--;
-            yaux++;
-            while (!(xaux == toX && yaux == toY)){
-                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
-                    return false;
-                }
-                xaux--;
-                yaux++;
 
-
-            }
-        } 
-        
+            return Directions.diagonalTopIzq(t, pieceX, pieceY, toX, toY);
+        }
         else if(pieceX < toX && pieceY > toY){
-            xaux++;
-            yaux--;
-            while(!(xaux == toX && yaux == toY)){
-                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
-                    return false;
-                }
-                xaux++;
-                yaux--;
-
-            }
-
-            
-        } 
-        
+           
+           return Directions.diagonalTopDer(t, pieceX, pieceY, toX, toY);   
+        }
         else if (pieceX > toX && pieceY > toY){
-            xaux--;
-            yaux--;
-            while(!(xaux == toX && yaux == toY)){
-                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
-                    return false;
-                }  
-                xaux--;
-                yaux--;
-             
-            }
+
+            return Directions.diagonalBotIzq(t, pieceX, pieceY, toX, toY);
         } 
         
         else if (pieceX < toX && pieceY < toY){
-            xaux++;
-            yaux++;
-            while(!(xaux == toX && yaux == toY)){
-                if(t.getPieceAt(xaux, yaux) != null && !(t.getPieceAt(xaux, yaux) instanceof Fantasma)){
-                    return false;
-                }  
-                xaux++;
-                yaux++;  
-                     
-            }
+           
+           return Directions.diagonalBotDer(t, pieceX, pieceY, toX, toY);
 
         }
 
