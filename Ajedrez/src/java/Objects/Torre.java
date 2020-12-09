@@ -5,6 +5,8 @@
  */
 package Objects;
 
+import Utils.Directions;
+
 public class Torre extends Pieza implements PiezaBloqueable {
     
     private String nombre;
@@ -36,30 +38,12 @@ public class Torre extends Pieza implements PiezaBloqueable {
         
         if (pieceY == toY){
             
-            int dx = (pieceX < toX) ? 1 : -1;
-            
-            for (int i = pieceX + dx ; i != toX; i+= dx){
-                if (i <=7 && i>=0){
-                    if (t.getPieceAt(i, pieceY) != null && !(t.getPieceAt(i, pieceY) instanceof Fantasma)){
-                        return false;
-                    }
-                }
-            }
-            
-            return true;
+            return Directions.moverX(t, pieceX, pieceY, toX, toY);
             
         } else if (pieceX == toX){
             
-            int dy = (pieceY < toY) ? 1 : -1;
-             for (int i = pieceY + dy ; i != toY; i+= dy){
-                if (i <=7 && i>=0){
-                    if (t.getPieceAt(pieceX, i) != null && !(t.getPieceAt(pieceX, i) instanceof Fantasma)){
-                        return false;
-                    }
-                }
-            }
-             
-             return true;
+            return Directions.moverY(t, pieceX, pieceY, toX, toY);
+            
         }
         
         return false;
